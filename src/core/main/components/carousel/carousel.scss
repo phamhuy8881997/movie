@@ -1,0 +1,165 @@
+@import "../../../global/responsive.scss";
+@import "../../../global/variable.scss";
+.carousel {
+  #my_carousel {
+    .carousel-indicators {
+      li {
+        width: 1.4rem;
+        height: 1.4rem;
+        margin: 0 10px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        @include responsive(sm) {
+          width: 1.2rem;
+          height: 1.2rem;
+          margin: 0 5px;
+        }
+      }
+      li.active {
+        background-color: aqua;
+        border: 2px solid #000;
+      }
+    }
+    .carousel-inner {
+      border-radius: 0 0 50px 50px;
+      overflow: hidden;
+      position: relative;
+      .carousel-item {
+        height: 650px;
+        @include responsive(xl) {
+          height: 600px;
+        }
+        @include responsive(md) {
+          height: 500px;
+        }
+        @include responsive(sm) {
+          padding-top: 60px;
+          height: 300px;
+        }
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          background-position-y: center;
+        }
+        button {
+          font-weight: bolder;
+          border-radius: 20px;
+          padding: 8px 15px;
+          opacity: 0;
+          box-shadow: 0 0 4px 5px rgba($color: #f00, $alpha: 0.7);
+          transition: all 0.6s;
+          @include responsive(xl) {
+            opacity: 1;
+          }
+          @include responsive(sm) {
+            padding: 4px 8px;
+          }
+          &:hover {
+            background-color: #002;
+            color: aqua;
+            box-shadow: 0 0 3px 4px aqua;
+          }
+        }
+        .overlay__carousel {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-image: linear-gradient(to left, #f00, #00f);
+          border-radius: 50%;
+          padding: 15px;
+          @include responsive(sm) {
+            padding: 5px;
+          }
+          box-shadow: 0 0 0 10px #ffde0080, 0 0 0 20px #ffde0040,
+            0 0 0 30px #ffde0020, 0 0 0 40px #ffde0010, 0 0 0 50px #ffde0000,
+            0 0 20px 50px #ffde0010;
+          animation: sunrise 2s infinite linear forwards,
+            rays 2s 2s infinite linear;
+          .overlay__carousel--content {
+            background-color: rgba($color: #797575, $alpha: 0.4);
+            padding: 10px;
+            @include responsive(sm) {
+              padding: 5px;
+            }
+            border-radius: 50%;
+            i {
+              color: #fff;
+              font-size: 5rem;
+              @include responsive(sm) {
+                font-size: 2rem;
+              }
+            }
+            &:hover {
+              background-color: aqua;
+              i {
+                color: #000;
+              }
+            }
+          }
+        }
+        &:hover {
+          button {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    i.fa-angle-double-left,
+    i.fa-angle-double-right {
+      font-size: 4rem;
+      padding: 7px 7px;
+      border-radius: 50%;
+      transition: all 0.3s;
+      @include responsive(sm) {
+        font-size: 2rem;
+      }
+      &:hover {
+        background-color: aqua;
+        color: black;
+      }
+    }
+  }
+}
+
+@keyframes sunrise {
+  0% {
+    box-shadow: none;
+  }
+}
+
+@keyframes rays {
+  0% {
+    box-shadow: 0 0 0 0 #ffde0080, 0 0 0 10px #ffde0080, 0 0 0 20px #ffde0040,
+      0 0 0 30px #ffde0020, 0 0 0 40px #ffde0010, 0 0 20px 50px #ffde0010;
+  }
+  100% {
+    box-shadow: 0 0 0 10px #ffde0080, 0 0 0 20px #ffde0040, 0 0 0 30px #ffde0020,
+      0 0 0 40px #ffde0010, 0 0 0 50px #ffde0000, 0 0 20px 50px #ffde0010;
+  }
+}
+
+//==============================
+.background__modal {
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 0.5s;
+  z-index: 99999999999999;
+}
+
+// ===========dark mode===============
+.bg___dark {
+  .carousel {
+    #my_carousel {
+      .carousel-inner {
+        box-shadow: 0 0 3px 4px aqua;
+      }
+    }
+  }
+}
+// ===========dark mode===============

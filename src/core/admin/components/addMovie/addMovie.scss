@@ -1,0 +1,71 @@
+@import "../../../global/responsive.scss";
+@import "../../../global/variable.scss";
+.add__movie {
+  width: 40%;
+  margin: 20px auto 0;
+  text-align: center;
+  padding: 30px 5%;
+  @include responsive(xl) {
+    width: 60%;
+    margin-top: 150px;
+  }
+  @include responsive(lg) {
+    width: 70%;
+  }
+  @include responsive(md) {
+    width: 85%;
+  }
+  @include responsive(sm) {
+    margin-top: 50px;
+    width: 95%;
+  }
+  border-radius: 20px;
+  background-image: linear-gradient(
+    to left,
+    rgb(252, 100, 100),
+    rgb(101, 101, 253)
+  );
+  .add__movie-title {
+    margin-bottom: 30px;
+  }
+  .add__movie-input {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-row-gap: 30px;
+    .add__movie-input1 {
+      display: flex;
+      justify-content: space-around;
+      align-items: baseline;
+      p {
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.2rem;
+        width: 25%;
+      }
+      input {
+        margin-top: -30px;
+        width: 75%;
+        border: 2px solid #000;
+        font-size: 1.4rem;
+        border-radius: 20px;
+        outline: none;
+        padding-left: 10px;
+      }
+      input#hinhAnh {
+        @extend input;
+      }
+    }
+  }
+  .add__movie-btn {
+    padding: 10px 0 0;
+    .btn {
+      padding: 10px 25px;
+      font-weight: bold;
+      box-shadow: 3px 3px 3px rgba($color: #000000, $alpha: 0.5);
+      &:hover {
+        background-color: #002;
+        color: #fc0;
+      }
+    }
+  }
+}

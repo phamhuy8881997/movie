@@ -1,0 +1,223 @@
+@import "../../../global/responsive.scss";
+@import "../../../global/variable.scss";
+
+// @include responsive(xl) {
+//   }
+.foodter {
+  //background-image: url(`../../../../../../access/images/image/banner1.jpg);
+  background-color: #001;
+  height: 450px;
+  width: 100vw;
+  background-repeat: repeat;
+  position: relative;
+  z-index: 20;
+  padding: 40px 15%;
+  .overlay__svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    @include responsive(sm) {
+      z-index: 0;
+      display: none;
+    }
+  }
+  .overlay__svg--mobile {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+    display: none;
+    @include responsive(sm) {
+      z-index: 12;
+      display: block;
+    }
+  }
+  .foodter__main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 40;
+    padding: 30px 15% 10px;
+    @include responsive(md) {
+      padding: 30px 5% 10px;
+    }
+  }
+}
+.foodter__main {
+  text-align: center;
+  .foodter__header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 30px;
+    @include responsive(sm) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .foodter__header--tag {
+      p {
+        font-size: 2rem;
+        @include responsive(xl) {
+          font-size: 1.8rem;
+        }
+        @include responsive(md) {
+          font-size: 1.3rem;
+        }
+        color: #fc0;
+        font-weight: bold;
+      }
+    }
+    .foodter__header--1 {
+      z-index: 50;
+      background-color: rgba($color: #003, $alpha: 0.8);
+      border-radius: 20px;
+      padding: 0 10px;
+      .foodter__header1--text {
+        text-align: left;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+        .foodter1-item1 {
+          font-size: 1.3rem;
+          font-weight: bold;
+          color: aqua;
+          @include responsive(md) {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+    .foodter__header--2 {
+      z-index: 50;
+      background-color: rgba($color: #003, $alpha: 0.8);
+      border-radius: 20px;
+      padding: 0 10px;
+      @include responsive(sm) {
+        display: none;
+      }
+      .foodter__header2--text {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 5px;
+        .foodter1-item2 {
+          display: flex;
+          align-items: center;
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            border: 2px solid #fc0;
+            margin-right: 10px;
+          }
+          span {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: aqua;
+            @include responsive(md) {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+    .foodter__header--3 {
+      z-index: 50;
+      background-color: rgba($color: #003, $alpha: 0.8);
+      border-radius: 20px;
+      padding: 0 10px;
+      @include responsive(sm) {
+        display: none;
+      }
+      .foodter__header3--text {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 5px;
+        .foodter1-item3 {
+          display: flex;
+          align-items: center;
+          transition: 0.5s;
+          i {
+            font-size: 3.5rem;
+            margin-right: 10px;
+            animation: icons 4s linear 0s infinite;
+            @include responsive(md) {
+              font-size: 2rem;
+            }
+          }
+          .fa-youtube {
+            color: #f02;
+          }
+          .fa-skype {
+            color: rgb(126, 186, 194);
+          }
+          .fa-facebook {
+            color: rgb(59, 110, 187);
+          }
+          .fa-instagram {
+            color: rgb(230, 179, 39);
+          }
+          span {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: aqua;
+            @include responsive(md) {
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  .foodter__body {
+    width: 100%;
+    text-align: left;
+    background-color: rgba($color: #003, $alpha: 0.8);
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    .foodter__body--img {
+      @include responsive(sm) {
+        display: flex;
+        flex-direction: column;
+      }
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid aqua;
+      }
+    }
+    p,
+    span {
+      color: #fc0;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+  }
+  .foodter__foodter {
+    background-color: rgba($color: #003, $alpha: 0.8);
+    color: #fc0;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+}
+
+@keyframes icons {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(-180deg);
+  }
+  100% {
+    transform: rotateY(0deg);
+  }
+}

@@ -1,0 +1,30 @@
+@import "../../../global/responsive.scss";
+@import "../../../global/variable.scss";
+.admin__users {
+  text-align: center;
+  .admin__users--tittle {
+  }
+  .admin__users--body {
+    padding: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    @include responsive(sm) {
+      grid-template-columns: 100%;
+    }
+    grid-gap: 20px;
+    .admin__users--item {
+      background-color: #001;
+      color: #fff;
+      font-weight: bold;
+      border: 3px dotted #f02;
+      padding: 10px;
+      text-align: left;
+      font-size: 1.3rem;
+      border-radius: 20px;
+      .admin__users--color1 {
+        color: #f03;
+      }
+    }
+  }
+}

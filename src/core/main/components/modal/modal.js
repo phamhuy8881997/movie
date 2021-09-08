@@ -7,22 +7,39 @@ class Modal extends Component {
     this.state = {};
   }
   render() {
-    let { show, close } = this.props;
+    let { show, close, trailer } = this.props;
     return (
       <Fragment>
         {show ? (
           <div className="pop-up__modal">
             <div className="modal__content">
-              <div>
-                <h1>header modal</h1>
+              <div className="modal__header">
+                <i className="fa fa-times" onClick={close}></i>
               </div>
-              <div>
-                <h2>body modal</h2>
+              <div className="modal__body">
+                <video
+                  controls
+                  loop
+                  poster={
+                    require(`../../../../access/images/image/carousel${trailer}.jpg`)
+                      .default
+                  }
+                >
+                  <source
+                    src={
+                      require(`../../../../access/images/video/trailer${trailer}.mp4`)
+                        .default
+                    }
+                  />
+                </video>
               </div>
-              <div>
-                <h1>foodter modal</h1>
-                <button type="button" class="btn btn-primary" onClick={close}>
-                  close
+              <div className="modal__foodter">
+                <button
+                  type="button"
+                  class="btn btn-primary btn-lg"
+                  onClick={close}
+                >
+                  Quay Lại
                 </button>
               </div>
             </div>

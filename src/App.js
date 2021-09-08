@@ -1,16 +1,18 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./App.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { MainRoute, AdminRoute } from "./router/router";
 import TemplateMain from "./core/main/template_main";
-import TemplateAdmin from "./core/admin/templateAdmin";
+//import TemplateAdmin from "./core/admin/templateAdmin";
 import { Redirect } from "react-router-dom";
+import GuardAdmin from "./core/admin/components/guard/guard";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+  componentDidMount = () => {};
   showMainRouter = () => {
     let resule = "";
     resule = MainRoute.map((route, i) => {
@@ -27,7 +29,7 @@ class App extends Component {
     resule = AdminRoute.map((route, i) => {
       return (
         <Route key={i} path={route.path} exact={route.exact}>
-          <TemplateAdmin Component={route.main}></TemplateAdmin>
+          <GuardAdmin Component={route.main}></GuardAdmin>
         </Route>
       );
     });
@@ -35,15 +37,14 @@ class App extends Component {
   };
   render() {
     return (
-      <div className="App">
+      <div className="App" id="My__App">
         <Router>
           <Switch>
             {this.showMainRouter()}
             {this.showAdminRouter()}
-            <Route path="">
-            {/* <h1>404 Not Found</h1> */}
-            <Redirect to="/" />
-          </Route>
+            <Route path="*">
+              <Redirect to="/" />
+            </Route>
           </Switch>
         </Router>
       </div>
@@ -52,3 +53,4 @@ class App extends Component {
 }
 
 export default App;
+//bg_dark

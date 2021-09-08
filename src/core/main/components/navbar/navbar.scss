@@ -1,0 +1,51 @@
+@import "../../../global/responsive.scss";
+@import "../../../global/variable.scss";
+.navbar__main {
+  text-align: center;
+  background-color: #002;
+  background-image: linear-gradient(to top, rgb(255, 90, 90), rgb(90, 90, 247));
+  width: 70%;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 3px 3px rgba($color: #000, $alpha: 0.7);
+  @include responsive(md) {
+    width: 80%;
+  }
+  .navbar__main--title {
+    margin-bottom: 20px;
+    h2 {
+      font-weight: bolder;
+    }
+  }
+  .booking__to1 {
+    option {
+      font-size: 1.6rem;
+    }
+  }
+  .booking__to2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    button {
+      padding: 10px 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 3px 3px rgba($color: #000000, $alpha: 0.7);
+      font-weight: bolder;
+      font-size: 1.8rem;
+      &:hover {
+        box-shadow: 0 0 3px 3px rgba($color: #fff, $alpha: 0.7);
+      }
+    }
+  }
+}
+
+// ===========dark mode===============
+.bg___dark {
+  .navbar__main {
+    box-shadow: 0 0 3px 3px rgba($color: aqua, $alpha: 0.7);
+  }
+  .booking__to2 {
+  }
+}
+// ===========dark mode===============

@@ -1,0 +1,40 @@
+#loading__component {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(167, 167, 167);
+  position: relative;
+  .loading__img {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    background-color: transparent;
+    box-shadow: 0 0 3px 3px aqua, 0 0 6px 6px rgba($color: #fff, $alpha: 0.5);
+    border-radius: 50%;
+    img {
+      width: 100%;
+      border-radius: 50%;
+      animation: loading 2s ease 0s infinite;
+    }
+  }
+  .loading__text {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -65%);
+  }
+}
+@keyframes loading {
+  0% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(-45deg);
+  }
+}

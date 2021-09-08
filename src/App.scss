@@ -1,0 +1,28 @@
+@import "./core/global/responsive.scss";
+.App {
+  max-width: 1360px;
+  margin: auto;
+}
+.bg___dark {
+  background-color: rgb(31, 31, 31) !important;
+}
+/* // ========================= */
+#scrollAdmin::-webkit-scrollbar {
+  width: 12px;
+  height: 34px;
+  background-color: transparent;
+  @include responsive(sm) {
+    width: 4px;
+    height: 20px;
+  }
+}
+#scrollAdmin::-webkit-scrollbar-thumb {
+  background-color: #fc0;
+  @include responsive(sm) {
+    background-color: #f03;
+  }
+}
+#scrollAdmin::-webkit-scrollbar-track {
+  background-color: #5f58589d;
+}
+/* // =========================== */
