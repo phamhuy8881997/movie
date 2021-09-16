@@ -7,6 +7,7 @@ import "./profile.scss";
 import ReactToPrint from "react-to-print";
 
 const logo = require(`../../../../access/images/image/logo1.png`).default;
+const avatar = require(`../../../../access/images/image/avatar.png`).default;
 const dateFormat = require("date-format");
 
 class Profile extends Component {
@@ -97,15 +98,18 @@ class Profile extends Component {
             </div>
             <div className="profile__body">
               <div className="profile__body--left">
+                <img src={avatar} alt="..." />
                 <p>Họ tên: {dataUser.hoTen} </p>
-                <p>Tài Khoản: {dataUser.taiKhoan}</p>
-                <p>Mật Khẩu: {dataUser.matKhau}</p>
-                <p>Email: {dataUser.email}</p>
-                <p>Số Điện Thoại: {dataUser.soDT}</p>
+                <p>Tài Khoản: {dataUser.taiKhoan.slice(0, 6)}****</p>
+                <p>Mật Khẩu: {dataUser.matKhau.slice(0, 6)}****</p>
+                <p>Email: {dataUser.email.slice(0, 6)}****</p>
+                <p>Số Điện Thoại: {dataUser.soDT.slice(0, 6)}****</p>
                 <p>Mã Nhóm: {dataUser.maNhom}</p>
-                <p>Loại: {dataUser.loaiNguoiDung}</p>
               </div>
               <div className="profile__body--right">
+                <div className="profile__body--title">
+                  <h1>Danh Sách Vé đã Đặt</h1>
+                </div>
                 {this.renderItemList()}
               </div>
             </div>

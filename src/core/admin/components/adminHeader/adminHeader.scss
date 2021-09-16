@@ -1,10 +1,15 @@
+@import "../../../global/responsive.scss";
+@import "../../../global/variable.scss";
+
+// @include responsive(xl) {
+//   }
 #checkDasboard {
   display: none;
 }
 .adminHeader {
   width: 200px;
   height: 100vh;
-  transition: all 1s;
+  transition: all 0.5s;
   background-color: rgba($color: #2b2525, $alpha: 1);
   .adminHeader__icon {
     text-align: right;
@@ -36,6 +41,7 @@
     font-size: 1.8rem;
     font-weight: bold;
     padding: 20px 10px;
+
     i {
       margin-right: 10px;
     }
@@ -44,16 +50,50 @@
       text-decoration: none;
     }
     &:hover {
-      background-color: rgba($color: #fff, $alpha: 0.4);
+      background-color: rgba($color: #fff, $alpha: 1);
+      border-radius: 40px 0 0 40px;
+      transition: all 0.3s;
       color: #f02;
       .adminHeader__item-text {
         color: #f02;
       }
     }
   }
+  @include responsive(md) {
+    width: 80px;
+    text-align: center;
+    .adminHeader__icon {
+      text-align: center;
+      i.fa-align-justify {
+        color: #f03;
+      }
+    }
+    .adminHeader__user {
+      margin-bottom: 40px;
+      img {
+        width: 50px;
+        height: 50px;
+      }
+      p {
+        font-size: 1.2rem;
+      }
+    }
+    .adminHeader__item {
+      padding: 25px 10px;
+      i {
+        font-size: 3rem;
+      }
+      .adminHeader__item-text {
+        display: none;
+      }
+    }
+  }
 }
 #checkDasboard:checked ~ .adminHeader {
   width: 80px;
+  @include responsive(md) {
+    width: 200px;
+  }
   text-align: center;
   .adminHeader__icon {
     text-align: center;
@@ -66,18 +106,32 @@
     img {
       width: 50px;
       height: 50px;
+      @include responsive(md) {
+        width: 100px;
+        height: 100px;
+      }
     }
     p {
       font-size: 1.2rem;
     }
   }
   .adminHeader__item {
-    padding: 30px 10px;
+    padding: 25px 10px;
+    @include responsive(md) {
+      text-align: left;
+    }
     i {
       font-size: 3rem;
+      @include responsive(md) {
+        font-size: 1.6rem;
+        margin-right: 10px;
+      }
     }
     .adminHeader__item-text {
       display: none;
+      @include responsive(md) {
+        display: inline;
+      }
     }
   }
 }

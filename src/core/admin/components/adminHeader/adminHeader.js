@@ -42,8 +42,20 @@ class AdminHeader extends Component {
               this.LinkTo("/admin");
             }}
           >
+            <i className="fa fa-folder-minus"></i>
+            <a href="/admin" className="adminHeader__item-text">
+              Danh Sách Phim
+            </a>
+          </div>
+          <div
+            className="adminHeader__item"
+            id="adminAT1"
+            onClick={() => {
+              this.LinkTo("/add-movie");
+            }}
+          >
             <i className="fa fa-film"></i>
-            <Link className="adminHeader__item-text" to="/admin">
+            <Link className="adminHeader__item-text" to="/add-movie">
               Thêm Phim
             </Link>
           </div>

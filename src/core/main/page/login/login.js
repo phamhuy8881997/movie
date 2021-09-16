@@ -20,6 +20,14 @@ class Login extends Component {
       soDienThoaiErr: "vui lòng nhập số điện thoại",
       emailErr: "vui lòng nhập Email",
       hoTenErr: "vui lòng nhập họ tên",
+      //=============
+      taikhoanC: "",
+      matkhauC: "",
+      matkhauN: "",
+      emailN: "",
+      soDtN: "",
+      hoTenN: "",
+      nguoiDungN: "KhachHang",
     };
   }
   //===============================================
@@ -193,13 +201,44 @@ class Login extends Component {
     }
   };
   //===============================================
+  getTokenLogin = () => {
+    let { taikhoanC, matkhauC } = this.state;
+    let data = {
+      taiKhoan: taikhoanC,
+      matKhau: matkhauC,
+    };
+    this.props.getTokenApiLogin1(data);
+  };
   //===============================================
+  handleUpdateUserPass = () => {
+    let { matkhauN, emailN, soDtN, hoTenN, nguoiDungN } = this.state;
+    let { tokenLogin } = this.props;
+    if (tokenLogin.taiKhoan === undefined) {
+    } else {
+      let token1 = tokenLogin.accessToken;
+      let data = {
+        taiKhoan: tokenLogin.taiKhoan,
+        matKhau: matkhauN,
+        email: emailN.toLocaleLowerCase(),
+        soDt: soDtN,
+        maNhom: "GP09",
+        maLoaiNguoiDung: nguoiDungN,
+        hoTen: hoTenN,
+      };
+      console.log("data:", data);
+      console.log("token:", token1);
+      this.props.update_user_password1(data, token1);
+    }
+  };
   //===============================================
   render() {
     let { formload, taikhoan, matkhau, soDienThoai, email, hoTen } = this.state;
     let { taikhoanErr, matkhauErr, soDienThoaiErr, emailErr, hoTenErr } =
       this.state;
+    let { taikhoanC, matkhauC, matkhauN, emailN, soDtN, hoTenN, nguoiDungN } =
+      this.state;
     //console.log(taikhoan, matkhau);
+    //console.log(this.props.tokenLogin);
     return (
       <Fragment>
         <div className="login_page1">
@@ -302,9 +341,13 @@ class Login extends Component {
                       }}
                     />
                     {taikhoanErr === "" ? (
-                      <span style={{ color: "#0f0" }}>tài khoản hợp lệ</span>
+                      <span style={{ color: "#0f0", fontWeight: "bold" }}>
+                        <i class="fa fa-check mr-2"></i> tài khoản hợp lệ
+                      </span>
                     ) : (
-                      <span style={{ color: "#f00" }}>{taikhoanErr}</span>
+                      <span style={{ color: "#f00", fontWeight: "bold" }}>
+                        <i class="fa fa-exclamation mr-2"></i> {taikhoanErr}
+                      </span>
                     )}
                   </div>
                 </div>
@@ -323,9 +366,13 @@ class Login extends Component {
                       }}
                     />
                     {matkhauErr === "" ? (
-                      <span style={{ color: "#0f0" }}>mật khẩu hợp lệ</span>
+                      <span style={{ color: "#0f0", fontWeight: "bold" }}>
+                        <i class="fa fa-check mr-2"></i> mật khẩu hợp lệ
+                      </span>
                     ) : (
-                      <span style={{ color: "#f00" }}>{matkhauErr}</span>
+                      <span style={{ color: "#f00", fontWeight: "bold" }}>
+                        <i class="fa fa-exclamation mr-2"></i> {matkhauErr}
+                      </span>
                     )}
                   </div>
                 </div>
@@ -344,11 +391,13 @@ class Login extends Component {
                       }}
                     />
                     {soDienThoaiErr === "" ? (
-                      <span style={{ color: "#0f0" }}>
-                        số điện thoại hợp lệ
+                      <span style={{ color: "#0f0", fontWeight: "bold" }}>
+                        <i class="fa fa-check mr-2"></i> số điện thoại hợp lệ
                       </span>
                     ) : (
-                      <span style={{ color: "#f00" }}>{soDienThoaiErr}</span>
+                      <span style={{ color: "#f00", fontWeight: "bold" }}>
+                        <i class="fa fa-exclamation mr-2"></i> {soDienThoaiErr}
+                      </span>
                     )}
                   </div>
                 </div>
@@ -367,9 +416,13 @@ class Login extends Component {
                       }}
                     />
                     {emailErr === "" ? (
-                      <span style={{ color: "#0f0" }}>Email thoại hợp lệ</span>
+                      <span style={{ color: "#0f0", fontWeight: "bold" }}>
+                        <i class="fa fa-check mr-2"></i> Email thoại hợp lệ
+                      </span>
                     ) : (
-                      <span style={{ color: "#f00" }}>{emailErr}</span>
+                      <span style={{ color: "#f00", fontWeight: "bold" }}>
+                        <i class="fa fa-exclamation mr-2"></i> {emailErr}
+                      </span>
                     )}
                   </div>
                 </div>
@@ -388,9 +441,13 @@ class Login extends Component {
                       }}
                     />
                     {hoTenErr === "" ? (
-                      <span style={{ color: "#0f0" }}>họ tên hợp lệ</span>
+                      <span style={{ color: "#0f0", fontWeight: "bold" }}>
+                        <i class="fa fa-check mr-2"></i> họ tên hợp lệ
+                      </span>
                     ) : (
-                      <span style={{ color: "#f00" }}>{hoTenErr}</span>
+                      <span style={{ color: "#f00", fontWeight: "bold" }}>
+                        <i class="fa fa-exclamation mr-2"></i> {hoTenErr}
+                      </span>
                     )}
                   </div>
                 </div>
@@ -409,9 +466,121 @@ class Login extends Component {
             {/* ==================dang ki========================= */}
             {/* ==================cập nhât======================== */}
             {formload === "3" && (
-              <div className="login_content">
-                <h1>Tính Năng Đang Trong Quá Trình Phát Triển</h1>
-                <h1>Vui Lòng Quay Lại Sau</h1>
+              <div className="login_content login__update">
+                <div className="login__update1">
+                  <div>
+                    <span>Tài Khoản Cũ</span>
+                    <input
+                      type="text"
+                      name="taikhoanC"
+                      placeholder="Tài Khoản Cũ"
+                      onChange={this.handleChange}
+                      value={taikhoanC}
+                    />
+                  </div>
+                  <div>
+                    <span>Mật Khẩu Cũ</span>
+                    <input
+                      type="text"
+                      name="matkhauC"
+                      placeholder="Mật Khẩu Cũ"
+                      onChange={this.handleChange}
+                      value={matkhauC}
+                    />
+                  </div>
+                  <div className="login__update1-btn">
+                    <button
+                      type="button"
+                      className="btn btn-info"
+                      onClick={() => {
+                        this.getTokenLogin();
+                      }}
+                    >
+                      Lấy Mã Code
+                    </button>
+                  </div>
+                  <div className="login__update1-code">
+                    mã code:{" "}
+                    {this.props.tokenLogin.accessToken === undefined ? (
+                      <span></span>
+                    ) : (
+                      <span>
+                        {this.props.tokenLogin?.accessToken.slice(0, 8)}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                {this.props.tokenLogin.accessToken === undefined ? (
+                  <span></span>
+                ) : (
+                  <Fragment>
+                    <div className="login__update2">
+                      <div>
+                        <span>Mật Khẩu Mới</span>
+                        <input
+                          type="text"
+                          name="matkhauN"
+                          placeholder="Mật Khẩu Mới..."
+                          onChange={this.handleChange}
+                          value={matkhauN}
+                        />
+                      </div>
+                      <div>
+                        <span>Email Mới</span>
+                        <input
+                          type="text"
+                          name="emailN"
+                          placeholder="Email Mới"
+                          onChange={this.handleChange}
+                          value={emailN}
+                        />
+                      </div>
+                      <div>
+                        <span>Số Điện Thoại Mới</span>
+                        <input
+                          type="text"
+                          name="soDtN"
+                          placeholder="số điện thoại Mới"
+                          onChange={this.handleChange}
+                          value={soDtN}
+                        />
+                      </div>
+                      <div>
+                        <span>Họ Tên Mới</span>
+                        <input
+                          type="text"
+                          name="hoTenN"
+                          placeholder="Họ Tên Mới"
+                          onChange={this.handleChange}
+                          value={hoTenN}
+                        />
+                      </div>
+                    </div>
+                    <div className="login__update2-txt1">
+                      <select
+                        name="nguoiDungN"
+                        className="form-control"
+                        required="required"
+                        onChange={this.handleChange}
+                        value={nguoiDungN}
+                      >
+                        <option value="KhachHang">Khách Hàng</option>
+                        <option value="QuanTri">Quản Trị</option>
+                      </select>
+                    </div>
+                    <div className="login__update2-txt1">
+                      <button
+                        type="button"
+                        className="btn btn-warning"
+                        onClick={() => {
+                          this.handleUpdateUserPass();
+                        }}
+                      >
+                        Cập Nhật
+                      </button>
+                    </div>
+                  </Fragment>
+                )}
               </div>
             )}
             {/* ==================cập nhât======================== */}
@@ -422,7 +591,9 @@ class Login extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    tokenLogin: state.loginToken,
+  };
 };
 const mapDisPathToProps = (dispath, props) => {
   return {
@@ -431,6 +602,12 @@ const mapDisPathToProps = (dispath, props) => {
     },
     signInApi: (data) => {
       dispath(action.signInApi(data));
+    },
+    getTokenApiLogin1: (data) => {
+      dispath(action.getTokenApiLogin(data));
+    },
+    update_user_password1: (data, token1) => {
+      dispath(action.update_user_password(data, token1));
     },
   };
 };

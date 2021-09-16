@@ -59,21 +59,21 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 7rem;
-      height: 7rem;
-
-      //text-align: center;
-      //line-height: 6.5rem;
-      background-color: rgba($color: #3b3b3b, $alpha: 0.5);
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      background-color: rgba($color: #000, $alpha: 0.3);
       transition: all 0.5s;
       opacity: 0;
       z-index: 8;
       i {
         color: #f03;
         font-size: 3rem;
-        border: 1px solid #fff;
-        padding: 20px;
+        border: 2px solid #fff;
+        padding: 10px;
         border-radius: 50%;
+        box-shadow: 0 0 5px aqua;
+        transition: all 0.5s;
       }
     }
     .cart__overlay {
@@ -141,6 +141,9 @@
   &:hover {
     .cart__icon {
       opacity: 1;
+      i {
+        transform: scale(1.5);
+      }
     }
     .cart__overlay {
       transform: translateY(0);
@@ -152,7 +155,7 @@
     }
     .cart__body {
       p {
-        color: chartreuse;
+        color: #fff;
       }
       .body__overlay {
         transform: translateY(0);
@@ -164,9 +167,9 @@
 // ===========dark mode===============
 .bg___dark {
   #cart__item {
-    border: 1px solid rgba($color: aqua, $alpha: 0.5);
+    border: 1px solid rgba($color: #fff, $alpha: 0.5);
     &:hover {
-      box-shadow: 0 0 3px 3px rgba($color: aqua, $alpha: 0.7),
+      box-shadow: 0 0 3px 3px rgb(255, 180, 180),
         0 0 6px 6px rgba($color: #fff, $alpha: 0.4);
       .cart__body {
         p {

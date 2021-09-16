@@ -9,7 +9,7 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: "",
+      user: { taiKhoan: "NoLogin" },
       maPhim: "",
       cumRap: "",
       rapChieu: "",
@@ -19,11 +19,21 @@ class Navbar extends Component {
   //===============================================
   componentDidMount() {
     this.props.getListMovie();
-    let user = JSON.parse(localStorage.getItem("userLogin"));
-    this.setState({ user: user });
+    if (localStorage.getItem("userLogin")) {
+      let user = JSON.parse(localStorage.getItem("userLogin"));
+      this.setState({ user: user });
+    }
   }
   //===============================================
   handleChange = (e) => {
+    let { cumRap, rapChieu, xuatChieu } = this.state;
+    if (cumRap !== "" || rapChieu !== "" || xuatChieu !== "") {
+      this.setState({
+        cumRap: "",
+        rapChieu: "",
+        xuatChieu: "",
+      });
+    }
     const value = e.target.value;
     this.setState({
       [e.target.name]: value,
@@ -31,6 +41,13 @@ class Navbar extends Component {
     this.props.getTheaterTime(value);
   };
   handleChange1 = (e) => {
+    let { rapChieu, xuatChieu } = this.state;
+    if (rapChieu !== "" || xuatChieu !== "") {
+      this.setState({
+        rapChieu: "",
+        xuatChieu: "",
+      });
+    }
     const value = e.target.value;
     this.setState({
       [e.target.name]: value,
@@ -38,6 +55,12 @@ class Navbar extends Component {
     //this.props.getTheaterTime(value);
   };
   handleChange2 = (e) => {
+    let { xuatChieu } = this.state;
+    if (xuatChieu !== "") {
+      this.setState({
+        xuatChieu: "",
+      });
+    }
     const value = e.target.value;
     this.setState({
       [e.target.name]: value,
@@ -133,7 +156,7 @@ class Navbar extends Component {
   //==============================================
   handleOnBooking = () => {
     let { xuatChieu } = this.state;
-    if (this.state.user.taiKhoan === undefined) {
+    if (this.state.user.taiKhoan === "NoLogin") {
       this.props.history.push(`/login`);
     } else {
       this.props.history.push(`/booking/${xuatChieu}`);
@@ -156,7 +179,7 @@ class Navbar extends Component {
           <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3 mb-5">
             <select
               name="maPhim"
-              id="option__nameMovie"
+              id="scrollAdmin"
               className="form-control"
               required="required"
               onChange={this.handleChange}
@@ -168,7 +191,7 @@ class Navbar extends Component {
           <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3 mb-5">
             <select
               name="cumRap"
-              id="option__TheaterMovieList"
+              id="scrollAdmin"
               className="form-control"
               required="required"
               onChange={this.handleChange1}
@@ -186,7 +209,7 @@ class Navbar extends Component {
           <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3 mb-5">
             <select
               name="rapChieu"
-              id="option__TheaterMovieItem"
+              id="scrollAdmin"
               className="form-control"
               required="required"
               onChange={this.handleChange2}
@@ -204,7 +227,7 @@ class Navbar extends Component {
           <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3 mb-5">
             <select
               name="xuatChieu"
-              id="option__nameMovie"
+              id="scrollAdmin"
               className="form-control"
               required="required"
               onChange={this.handleChange3}

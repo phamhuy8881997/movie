@@ -14,9 +14,10 @@
     justify-content: space-around;
     align-items: center;
     min-height: 600px;
-    padding: 100px 10% 25px;
+    padding: 150px 10% 25px;
+
     @include responsive(lg) {
-      padding: 100px 5% 15px;
+      padding: 120px 5% 15px;
     }
     @include responsive(sm) {
       display: grid;
@@ -33,8 +34,15 @@
       img {
         width: 100%;
         height: 100%;
+        border-radius: 30px 0 30px 0;
         box-shadow: 0 0 3px 3px aqua,
           0 0 6px 6px rgba($color: #fff, $alpha: 0.5);
+        transition: all 0.7s;
+        &:hover {
+          filter: brightness(50%);
+          box-shadow: 0 0 3px 3px #f03,
+            0 0 6px 6px rgba($color: #fff, $alpha: 0.5);
+        }
       }
     }
     .detail__text {
@@ -48,6 +56,19 @@
         background-color: chartreuse;
         color: #002;
         padding: 5px 10px;
+        border-radius: 10px;
+      }
+      button {
+        padding: 5px 30px;
+        border-radius: 30px;
+        border: 2px solid #fc0;
+        font-size: 1.6rem;
+        font-weight: bold;
+        &:hover {
+          background-color: #004;
+          border-color: aqua;
+          color: aqua;
+        }
       }
     }
   }
@@ -80,36 +101,40 @@
   }
 }
 //=============overlay===============
-.detail__img {
-  position: relative;
-  z-index: 12;
-  .detail__img--overlay {
-    z-index: 13;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    i {
-      font-size: 5rem;
-      padding: 20px;
-      border-radius: 50%;
-      background-color: rgba($color: #000000, $alpha: 0.6);
-      border: 3px solid #f02;
-      color: #f02;
-      box-shadow: 0 0 3px 5px rgba($color: aqua, $alpha: 0.7);
-      visibility: hidden;
-      opacity: 0;
-      transition: 0.3s;
-      @include responsive(xl) {
-        visibility: visible;
-        opacity: 1;
+.detail__header {
+  .detail__img {
+    position: relative;
+    z-index: 12;
+    .detail__img--overlay {
+      z-index: 13;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      i {
+        font-size: 5rem;
+        padding: 20px;
+        border-radius: 50%;
+        background-color: rgba($color: #000000, $alpha: 0.6);
+        border: 3px solid #f02;
+        color: #f02;
+        box-shadow: 0 0 3px 3px rgba($color: aqua, $alpha: 0.5);
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.2s;
+        @include responsive(xl) {
+          visibility: visible;
+          opacity: 1;
+        }
       }
     }
-  }
-  :hover {
-    i {
-      visibility: visible;
-      opacity: 1;
+    &:hover {
+      .detail__img--overlay {
+        i {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
     }
   }
 }

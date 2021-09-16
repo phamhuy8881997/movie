@@ -10,6 +10,7 @@ import NewsPage from "../core/main/page/news/newsPage";
 import AddMovie from "../core/admin/components/addMovie/addMovie";
 import AddTime from "../core/admin/components/addTime/addTime";
 import DataUser from "../core/admin/components/dataUser/dataUser";
+import AdminMain from "../core/admin/components/adminMain/adminMain";
 
 export const MainRoute = [
   {
@@ -49,6 +50,11 @@ export const MainRoute = [
 export const AdminRoute = [
   {
     path: "/admin",
+    exact: true,
+    main: () => <AdminMain />,
+  },
+  {
+    path: "/add-movie",
     exact: true,
     main: () => <AddMovie />,
   },

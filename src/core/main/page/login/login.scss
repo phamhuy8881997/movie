@@ -70,13 +70,13 @@
   }
   .login_content {
     background-color: rgba($color: #fff, $alpha: 0.8);
-    box-shadow: 0 0 3px 3px rgba($color: aqua, $alpha: 1),
+    box-shadow: 0 0 3px 3px rgba($color: rgb(81, 255, 0), $alpha: 0.8),
       0 0 5px 8px rgba($color: #fff, $alpha: 0.5),
       inset 0 0 5px 5px rgba($color: #000, $alpha: 0.4);
     padding: 20px 5%;
     border-radius: 20px;
     button {
-      padding: 5px 20px;
+      padding: 5px 40px;
       font-size: 1.4rem;
       font-weight: bold;
       border-radius: 20px;
@@ -118,6 +118,60 @@
         line-height: 20px;
         text-align: center;
       }
+    }
+  }
+}
+.login__update {
+  height: 400px;
+  text-align: center;
+  .login__update1 {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-row-gap: 5px;
+    span,
+    input {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+  .login__update2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px 15px;
+    padding-top: 20px;
+    span,
+    input {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    input {
+      width: 90%;
+    }
+  }
+  .login__update2-txt1 {
+    padding: 20px 40px 10px;
+    select {
+      border: 2px solid #000;
+      font-weight: bold;
+    }
+  }
+}
+.bg___dark {
+  .login_content {
+    background-color: rgba($color: #002, $alpha: 0.8);
+    box-shadow: 0 0 3px 3px rgba($color: rgb(255, 145, 145), $alpha: 0.8),
+      0 0 5px 8px rgba($color: #fff, $alpha: 0.5),
+      inset 0 0 5px 5px rgba($color: #ffc, $alpha: 0.4);
+    p,
+    span {
+      color: #fc0;
+    }
+    input {
+      border: 2px solid #000;
+    }
+    .login__update1-code {
+      color: #f00 !important;
+      font-weight: bold;
     }
   }
 }

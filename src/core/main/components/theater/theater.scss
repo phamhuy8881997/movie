@@ -25,6 +25,15 @@
       font-size: 3rem;
     }
   }
+  // animation: test 5s linear infinite;
+  // @keyframes test {
+  //   0% {
+  //     filter: hue-rotate(0deg);
+  //   }
+  //   100% {
+  //     filter: hue-rotate(360deg);
+  //   }
+  // }
 }
 .theater__page {
   padding: 20px 0 30px;
@@ -216,7 +225,7 @@
   }
   .theater__page {
     .theater1 {
-      border: 1px solid aqua;
+      border: 1px solid #fff;
       .theater1-logo {
         p {
           color: aqua;
@@ -236,7 +245,7 @@
       }
     }
     .theater2 {
-      border: 1px solid aqua;
+      border: 1px solid #fff;
       .theater2-item {
         border-color: rgba($color: #fff, $alpha: 0.4);
         &:hover {
@@ -253,7 +262,7 @@
       }
     }
     .theater3 {
-      border: 1px solid aqua;
+      border: 1px solid #fff;
       .th3-text {
         color: aqua;
       }

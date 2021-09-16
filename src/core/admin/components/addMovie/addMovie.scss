@@ -1,9 +1,95 @@
 @import "../../../global/responsive.scss";
 @import "../../../global/variable.scss";
 .add__movie {
-  width: 40%;
-  margin: 20px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  @include responsive(xl) {
+    flex-direction: column;
+    padding: 140px 0;
+  }
+  @include responsive(sm) {
+    padding: 50px 0;
+  }
+  background-image: linear-gradient(
+    to left,
+    rgb(252, 100, 100),
+    rgb(101, 101, 253)
+  );
+}
+.add__movie-left {
+  width: 50%;
   text-align: center;
+  @include responsive(md) {
+    width: 100%;
+  }
+  .add__movie-left-img {
+    height: 270px;
+    width: 180px;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    @include responsive(md) {
+      height: 370px;
+      width: 240px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+  .add__movie-left-input {
+    label {
+      padding: 3px 10px;
+      background-color: #003;
+      color: #fc0;
+      margin: 10px 0;
+      border: 2px solid transparent;
+      &:hover {
+        color: aqua;
+        border-color: aqua;
+      }
+      border-radius: 20px;
+      i {
+        font-size: 2.5rem;
+        margin-right: 10px;
+      }
+      span {
+        font-size: 1.6rem;
+      }
+    }
+    #hinhAnh {
+      display: none;
+    }
+    p {
+      font-size: 1.3rem;
+      color: azure;
+      font-weight: bold;
+    }
+    margin: auto;
+    textarea {
+      padding: 10px;
+      font-weight: bold;
+      outline: none;
+      border-radius: 10px;
+      width: 60%;
+      @include responsive(xl) {
+        width: 100%;
+      }
+      @include responsive(md) {
+        width: 80%;
+      }
+    }
+  }
+}
+.add__movie-right {
+  width: 50%;
+  text-align: center;
+  margin: 0 5%;
   padding: 30px 5%;
   @include responsive(xl) {
     width: 60%;
@@ -19,14 +105,11 @@
     margin-top: 50px;
     width: 95%;
   }
-  border-radius: 20px;
-  background-image: linear-gradient(
-    to left,
-    rgb(252, 100, 100),
-    rgb(101, 101, 253)
-  );
+  border-radius: 10px;
+  background-color: rgba($color: #000000, $alpha: 0.3);
   .add__movie-title {
     margin-bottom: 30px;
+    color: #fff;
   }
   .add__movie-input {
     display: grid;
@@ -50,6 +133,10 @@
         border-radius: 20px;
         outline: none;
         padding-left: 10px;
+        &:focus {
+          background-color: rgba($color: #003, $alpha: 0.8);
+          color: #fc0;
+        }
       }
       input#hinhAnh {
         @extend input;
@@ -62,6 +149,8 @@
       padding: 10px 25px;
       font-weight: bold;
       box-shadow: 3px 3px 3px rgba($color: #000000, $alpha: 0.5);
+      border-radius: 20px;
+      font-size: 1.6rem;
       &:hover {
         background-color: #002;
         color: #fc0;

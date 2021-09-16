@@ -1,0 +1,31 @@
+@import "../../../global/responsive.scss";
+@import "../../../global/variable.scss";
+
+// @include responsive(xl) {
+//   }
+.admin__movieALL {
+  text-align: center;
+  padding: 30px 0;
+  .admin__movieALL-title {
+    h1 {
+      font-weight: bold;
+    }
+    padding-bottom: 30px;
+  }
+  .admin__movieALL-body {
+    display: grid;
+    grid-gap: 20px 5px;
+    //background-color: royalblue;
+    grid-template-columns: repeat(8, 1fr);
+
+    @include responsive(xl) {
+      grid-template-columns: repeat(7, 1fr);
+    }
+    @include responsive(md) {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    @include responsive(sm) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

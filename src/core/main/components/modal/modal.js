@@ -36,7 +36,7 @@ class Modal extends Component {
               <div className="modal__foodter">
                 <button
                   type="button"
-                  class="btn btn-primary btn-lg"
+                  className="btn btn-primary btn-lg"
                   onClick={close}
                 >
                   Quay Lại

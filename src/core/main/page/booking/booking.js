@@ -151,7 +151,7 @@ class Booking extends Component {
                   this.handleBookingApi();
                 }}
               >
-                Đăt Vé
+                Đặt Vé Ngay
               </button>
             </div>
           </section>

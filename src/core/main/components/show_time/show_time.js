@@ -9,14 +9,16 @@ class ShowTime extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {},
+      user: { taiKhoan: "NoLogin" },
     };
   }
   componentDidMount() {
     const { id } = this.props.match.params;
     this.props.getMovieDetail(id);
-    let user = JSON.parse(localStorage.getItem("userLogin"));
-    this.setState({ user: user });
+    if (localStorage.getItem("userLogin")) {
+      let user = JSON.parse(localStorage.getItem("userLogin"));
+      this.setState({ user: user });
+    }
   }
   renderShowTime = () => {
     let { lichChieu, history } = this.props;
@@ -44,7 +46,7 @@ class ShowTime extends Component {
           </tr>
           <tr>
             <td colSpan="5">
-              {this.state.user.taiKhoan === undefined ? (
+              {this.state.user.taiKhoan === "NoLogin" ? (
                 <button
                   type="button"
                   className="btn btn-warning btn-lg"

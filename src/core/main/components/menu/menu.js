@@ -8,15 +8,17 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {},
+      user: { taiKhoan: "NoLogin" },
     };
   }
   componentDidMount() {
-    let user = JSON.parse(localStorage.getItem("userLogin"));
-    this.setState({ user: user });
+    if (localStorage.getItem("userLogin")) {
+      let user = JSON.parse(localStorage.getItem("userLogin"));
+      this.setState({ user: user });
+    }
   }
   handleLogOut = () => {
-    localStorage.setItem("userLogin", JSON.stringify({}));
+    localStorage.setItem("userLogin", JSON.stringify({ taiKhoan: "NoLogin" }));
     this.props.history.push("/");
     setTimeout(() => window.location.reload(), 1000);
   };
@@ -25,6 +27,7 @@ class Menu extends Component {
   };
   render() {
     let { user } = this.state;
+    //console.log("test:", user.taiKhoan);
     return (
       <section className="menu__page text-center">
         <input type="checkbox" id="check__menu" />
@@ -36,7 +39,7 @@ class Menu extends Component {
             <label htmlFor="check__menu">
               <i className="fa fa-times-circle"></i>
             </label>
-            {user.taiKhoan === undefined ? (
+            {user.taiKhoan === "NoLogin" ? (
               <div className="menu__page--text">
                 <div>
                   <i className="fa fa-user-circle"></i>

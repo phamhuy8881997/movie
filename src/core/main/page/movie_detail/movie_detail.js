@@ -65,6 +65,7 @@ class MovieDetail extends Component {
                   </div>
                 </div>
                 <div className="detail__text">
+                  <p>Tên Phim: {movieDetail.tenPhim}</p>
                   <p>
                     Ngày Khởi Chiếu:{" "}
                     {dateFormat(
@@ -72,7 +73,6 @@ class MovieDetail extends Component {
                       new Date(movieDetail.ngayKhoiChieu)
                     )}
                   </p>
-
                   <p>Đánh Giá: {movieDetail.danhGia}/10</p>
                   <p>
                     Mã Nhóm:{" "}

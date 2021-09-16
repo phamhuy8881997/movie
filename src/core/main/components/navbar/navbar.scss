@@ -19,8 +19,19 @@
     }
   }
   .booking__to1 {
-    option {
-      font-size: 1.6rem;
+    .form-control {
+      background-color: black;
+      color: #fc0;
+      font-weight: bold;
+      font-size: 1.3rem;
+      @include responsive(md) {
+        font-size: 1.1rem;
+      }
+      border: 2px solid aqua;
+      border-radius: 20px;
+      option {
+        font-size: 1.6rem;
+      }
     }
   }
   .booking__to2 {
@@ -43,7 +54,7 @@
 // ===========dark mode===============
 .bg___dark {
   .navbar__main {
-    box-shadow: 0 0 3px 3px rgba($color: aqua, $alpha: 0.7);
+    box-shadow: 0 0 3px 3px rgb(255, 180, 180);
   }
   .booking__to2 {
   }

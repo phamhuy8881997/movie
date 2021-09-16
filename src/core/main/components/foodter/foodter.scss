@@ -5,13 +5,16 @@
 //   }
 .foodter {
   //background-image: url(`../../../../../../access/images/image/banner1.jpg);
-  background-color: #001;
+
+  background-color: beige;
   height: 450px;
   width: 100vw;
   background-repeat: repeat;
   position: relative;
   z-index: 20;
   padding: 40px 15%;
+  max-width: 1360px;
+  margin: auto;
   .overlay__svg {
     position: absolute;
     width: 100%;
@@ -44,9 +47,12 @@
     left: 0;
     top: 0;
     z-index: 40;
-    padding: 30px 15% 10px;
+    padding: 50px 15% 10px;
     @include responsive(md) {
-      padding: 30px 5% 10px;
+      padding: 70px 5% 10px;
+    }
+    @include responsive(sm) {
+      padding: 50px 5% 10px;
     }
   }
 }
@@ -62,14 +68,14 @@
     .foodter__header--tag {
       p {
         font-size: 2rem;
+        color: #fc0;
+        font-weight: bold;
         @include responsive(xl) {
           font-size: 1.8rem;
         }
         @include responsive(md) {
-          font-size: 1.3rem;
+          font-size: 1.1rem;
         }
-        color: #fc0;
-        font-weight: bold;
       }
     }
     .foodter__header--1 {
@@ -82,12 +88,18 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 20px;
+        @include responsive(sm) {
+          text-align: center;
+        }
         .foodter1-item1 {
           font-size: 1.3rem;
           font-weight: bold;
           color: aqua;
           @include responsive(md) {
             font-size: 1rem;
+          }
+          @include responsive(md) {
+            font-weight: 100;
           }
         }
       }
@@ -115,13 +127,17 @@
             object-position: center;
             border: 2px solid #fc0;
             margin-right: 10px;
+            @include responsive(md) {
+              width: 20px;
+              height: 20px;
+            }
           }
           span {
             font-size: 1.3rem;
             font-weight: bold;
             color: aqua;
             @include responsive(md) {
-              font-size: 1rem;
+              font-size: 1.2rem;
             }
           }
         }
@@ -146,7 +162,7 @@
           i {
             font-size: 3.5rem;
             margin-right: 10px;
-            animation: icons 4s linear 0s infinite;
+            animation: icons 3s linear 0s infinite;
             @include responsive(md) {
               font-size: 2rem;
             }
@@ -168,7 +184,7 @@
             font-weight: bold;
             color: aqua;
             @include responsive(md) {
-              font-size: 1rem;
+              font-size: 1.2rem;
             }
           }
         }
@@ -182,16 +198,16 @@
     padding: 20px;
     margin-bottom: 10px;
     border-radius: 20px;
+    text-align: center;
     .foodter__body--img {
-      @include responsive(sm) {
-        display: flex;
-        flex-direction: column;
-      }
       img {
-        width: 50px;
-        height: 50px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
         border: 2px solid aqua;
+        @include responsive(sm) {
+          display: none;
+        }
       }
     }
     p,
@@ -212,12 +228,17 @@
 
 @keyframes icons {
   0% {
-    transform: rotateY(0deg);
+    transform: scale(0.5);
   }
   50% {
-    transform: rotateY(-180deg);
+    transform: scale(1);
   }
   100% {
-    transform: rotateY(0deg);
+    transform: scale(0.5);
+  }
+}
+.bg___dark {
+  .foodter {
+    background-color: #001;
   }
 }

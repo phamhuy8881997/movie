@@ -5,4 +5,6 @@ html,body {
   font-size: 10px;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  max-width: 1360px;
+  margin: auto;
 }

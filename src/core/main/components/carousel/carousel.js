@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Link } from "react-router-dom";
 import Modal from "../modal/modal";
 import "./carousel.scss";
 
@@ -15,28 +16,43 @@ class Carousel extends Component {
   };
   //===================================================
   renderCarousel = () => {
-    let arr1 = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+    //let arr1 = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let arr2 = [
+      { cr: 2, mp: 8502 },
+      { cr: 3, mp: 8527 },
+      { cr: 4, mp: 8528 },
+      { cr: 5, mp: 8529 },
+      { cr: 6, mp: 8530 },
+      { cr: 7, mp: 8531 },
+      { cr: 8, mp: 8532 },
+      { cr: 9, mp: 8533 },
+      { cr: 10, mp: 8534 },
+    ];
     let resule = "";
-    resule = arr1.map((item, i) => {
+    resule = arr2.map((item, i) => {
       return (
         <div className="carousel-item" key={`carousel${i}`}>
           <img
             src={
-              require(`../../../../access/images/image/carousel${item}.jpg`)
+              require(`../../../../access/images/image/carousel${item.cr}.jpg`)
                 .default
             }
             className="d-block w-100"
             alt="..."
           />
           <div className="carousel-caption">
-            <button type="button" className="btn btn-warning btn-lg">
+            <Link
+              type="button"
+              className="btn btn-warning btn__carousel btn-lg"
+              to={`/movie-detail/${item.mp}`}
+            >
               Xem Chi Tiết
-            </button>
+            </Link>
           </div>
           <div
             className="overlay__carousel"
             onClick={() => {
-              this.setState({ is_show: true, trailer: `${item}` });
+              this.setState({ is_show: true, trailer: `${item.cr}` });
             }}
           >
             <div className="overlay__carousel--content">
@@ -73,7 +89,12 @@ class Carousel extends Component {
           ></div>
         ) : null}
         <section className="carousel">
-          <div id="my_carousel" className="carousel slide" data-ride="carousel">
+          <div
+            id="my_carousel"
+            className="carousel slide carousel-fade"
+            data-ride="carousel"
+            data-interval="2500"
+          >
             <ol className="carousel-indicators">
               <li
                 data-target="#my_carousel"
@@ -93,9 +114,13 @@ class Carousel extends Component {
                   alt="..."
                 />
                 <div className="carousel-caption d-none d-md-block">
-                  <button type="button" className="btn btn-warning btn-lg">
+                  <Link
+                    type="button"
+                    className="btn btn-warning btn__carousel btn-lg"
+                    to={`/movie-detail/8495`}
+                  >
                     Xem Chi Tiết
-                  </button>
+                  </Link>
                 </div>
                 <div
                   className="overlay__carousel"

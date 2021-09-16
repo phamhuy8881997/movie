@@ -8,19 +8,27 @@ class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: {},
+      user: { taiKhoan: "NoLogin" },
     };
   }
   componentDidMount() {
-    let user = JSON.parse(localStorage.getItem("userLogin"));
-    this.setState({ user: user });
+    if (localStorage.getItem("userLogin")) {
+      let user = JSON.parse(localStorage.getItem("userLogin"));
+      this.setState({ user: user });
+    }
   }
+  handleLogOutUser = () => {
+    localStorage.setItem("userLogin", JSON.stringify({ taiKhoan: "NoLogin" }));
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
+  };
   handleScroll = (value) => {
     this.props.history.push("/");
     setTimeout(() => {
       let pos = document.getElementById(value).offsetTop;
       window.scrollTo(0, pos - 100);
-    }, 350);
+    }, 1000);
   };
   render() {
     //console.log("user", this.state.user);
@@ -29,28 +37,32 @@ class Header extends Component {
         <div className="header">
           <div className="header__logo">
             <a href="/">
-              <img
-                src={
-                  require(`../../../../access/images/image/logo1.png`).default
-                }
-                alt="..."
-              />
+              <i className="fa fa-star fa-spin i__header"></i>
+              <p>Star Blue </p>
             </a>
+            <div className="name__movie"></div>
           </div>
+
           <div className="header__content">
-            {this.state.user.taiKhoan === undefined ? (
+            {this.state.user.taiKhoan === "NoLogin" ? (
               <Link className="login__icon" to="/login">
                 <i className="fa fa-user-circle mr-2"></i>
                 <span>Đăng Nhập</span>
               </Link>
             ) : (
-              <Link className="login__icon" to="/">
-                <i className="fa fa-user-circle mr-2"></i>
-                <span>Đăng Nhập</span>
-              </Link>
+              <div
+                className="login__icon"
+                onClick={() => {
+                  this.handleLogOutUser();
+                }}
+              >
+                <i className="fa fa-user-times mr-2"></i>
+                <span>Đăng Xuất</span>
+              </div>
             )}
           </div>
-          <div className="header__menu">
+
+          <div className="header__menu" id="header__menu">
             <div className="header__menu--content">
               <p
                 onClick={() => {

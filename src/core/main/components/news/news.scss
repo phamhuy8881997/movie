@@ -9,6 +9,7 @@
     width: 95%;
   }
   margin: 0 auto;
+  padding-bottom: 50px;
   .news__header {
     text-align: center;
     background-color: black;
@@ -83,7 +84,7 @@
       .news__item {
         .news__img {
           img {
-            box-shadow: 0 0 2px 2px aqua;
+            box-shadow: 0 0 2px 2px rgba(255, 220, 220, 0.884);
           }
         }
         .news__text {

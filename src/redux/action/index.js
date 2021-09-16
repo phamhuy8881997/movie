@@ -249,7 +249,6 @@ export const get_theater_list_api = (maHeThongRap) => {
 //=============================================================================
 //=================lấy thông tin suất chiếu ===================================
 //=============================================================================
-
 export const get_theater_info_api = (maHeThongRap) => {
   return (dispath) => {
     callapi(
@@ -273,7 +272,6 @@ export const get_theater_info_api = (maHeThongRap) => {
 //=============================================================================
 //=================lấy thông tin lịch chiếu theo mã phim ======================
 //=============================================================================
-
 export const get_theater_time_api = (maPhim) => {
   return (dispath) => {
     if (maPhim === "") {
@@ -310,13 +308,13 @@ export const push_movie_api = (data) => {
           type: typess.ADD_MOVIE,
           payload: res.data,
         });
-        toast.success(`😀 thêm phim thành công Thành Công ! `, {
+        toast.success(`😀 thêm phim thành công ! `, {
           position: "top-center",
           autoClose: 2000,
           pauseOnHover: false,
         });
       })
-      .catch((err) => {
+      .catch((res) => {
         toast.error(`⚠️ thêm phim thất bại ! `, {
           position: "top-center",
           autoClose: 2000,
@@ -327,6 +325,46 @@ export const push_movie_api = (data) => {
 };
 //=============================================================================
 //=================thêm phim mới lên API ======================================
+//=============================================================================
+
+//=============================================================================
+//=================cập nhật phim lên api ======================================
+//=============================================================================
+export const update_movie_api = (data) => {
+  let user;
+  if (localStorage.getItem("userLogin")) {
+    user = JSON.parse(localStorage.getItem("userLogin"));
+  }
+  return (dispath) => {
+    axios({
+      method: "POST",
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/CapNhatPhimUpload`,
+      data,
+      headers: {
+        Authorization: `Bearer ${user.accessToken}`,
+      },
+    })
+      .then((res) => {
+        toast.info(`😀 Cập Nhật phim thành công ! `, {
+          position: "top-center",
+          autoClose: 3000,
+          pauseOnHover: false,
+        });
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+      })
+      .catch((err) => {
+        toast.error(`⚠️ Cập nhật phim thất bại ! `, {
+          position: "top-center",
+          autoClose: 3000,
+          pauseOnHover: false,
+        });
+      });
+  };
+};
+//=============================================================================
+//=================cập nhật phim lên api ======================================
 //=============================================================================
 
 //=============================================================================
@@ -373,6 +411,45 @@ export const push_movie_time_api = (data) => {
 //=============================================================================
 
 //=============================================================================
+//===================xóa phim API =============================================
+//=============================================================================
+export const delete_movie_api = (maPhim) => {
+  let user;
+  if (localStorage.getItem("userLogin")) {
+    user = JSON.parse(localStorage.getItem("userLogin"));
+  }
+  return (dispath) => {
+    axios({
+      method: "DELETE",
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?maPhim=${maPhim}`,
+      headers: {
+        Authorization: `Bearer ${user.accessToken}`,
+      },
+    })
+      .then((res) => {
+        toast.info(`😀  xóa phim thành công ! `, {
+          position: "top-center",
+          autoClose: 3000,
+          pauseOnHover: false,
+        });
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+      })
+      .catch((err) => {
+        toast.error(`⚠️ xóa phim thất bại ! `, {
+          position: "top-center",
+          autoClose: 3000,
+          pauseOnHover: false,
+        });
+      });
+  };
+};
+//=============================================================================
+//===================xóa phim API =============================================
+//=============================================================================
+
+//=============================================================================
 //=================lấy toàn bộ người dùng =====================================
 //=============================================================================
 export const get_data_user_api = () => {
@@ -392,3 +469,63 @@ export const get_data_user_api = () => {
 //=============================================================================
 //=================lấy toàn bộ người dùng =====================================
 //=============================================================================
+
+//=============================================================================
+//=================lấy token câp nhật tài khoản================================
+//=============================================================================
+export const getTokenApiLogin = (userLogin) => {
+  return (dispath) => {
+    callapi(`/QuanLyNguoiDung/DangNhap`, "POST", userLogin)
+      .then((res) => {
+        dispath({
+          type: typess.GET_TOKEN_LOGIN,
+          payload: res.data,
+        });
+        //localStorage.setItem("userLoginToken", JSON.stringify(res.data));
+
+        toast.success(`😀 Lấy Mã Code Thành Công ! `, {
+          position: "top-center",
+          autoClose: 2000,
+          pauseOnHover: false,
+        });
+      })
+      .catch((error) => {
+        toast.error(`⚠️ tài khoản hoặc mật khẩu không Tồn Tại ! `, {
+          position: "top-center",
+          autoClose: 2000,
+          pauseOnHover: false,
+        });
+      });
+  };
+};
+//=============================================================================
+//=================lấy token câp nhật tài khoản================================
+//=============================================================================
+export const update_user_password = (data, accessToken1) => {
+  return (dispath) => {
+    axios({
+      method: "PUT",
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,
+      data,
+      headers: {
+        Authorization: `Bearer ${accessToken1}`,
+      },
+    })
+      .then((res) => {
+        toast.success(`😀 cập nhật thành công Thành Công ! `, {
+          position: "top-center",
+          autoClose: 2000,
+          pauseOnHover: false,
+        });
+        //setTimeout(() => history.push("/profile"), 3000);
+      })
+      .catch((error) => {
+        console.log(error);
+        toast.error(`⚠️ cập nhật thất bại ! `, {
+          position: "top-center",
+          autoClose: 2000,
+          pauseOnHover: false,
+        });
+      });
+  };
+};

@@ -5,32 +5,46 @@
 }
 .menu__page {
   position: fixed;
-  top: 0px;
+  top: 0;
   right: 0;
+  @include responsive(full-hd) {
+    right: 280px;
+  }
+  @include responsive(xxl) {
+    right: 0;
+  }
   z-index: 9999999999999999999999999999;
   overflow: hidden;
 }
 .menu__page--content {
-  background-color: #004;
+  background-color: transparent;
   label {
     height: 65px;
     @include responsive(sm) {
-      height: 45px;
+      height: 55px;
     }
     i {
       font-size: 3rem;
-      color: #fc0;
+      color: #000;
       line-height: 65px;
       transition: all 0.25s;
       @include responsive(sm) {
-        height: 2.5rem;
-        line-height: 55px;
+        color: azure;
+      }
+      &:hover {
+        color: aqua;
+      }
+    }
+    i.fa-times-circle {
+      color: #fc0;
+      &:hover {
+        color: aqua;
       }
     }
   }
 }
 .menu__page--body {
-  color: #fc0;
+  color: #000;
   width: 70px;
   height: 260px;
   position: relative;
@@ -46,42 +60,30 @@
   }
   @include responsive(sm) {
     height: 0px;
+    width: 0px;
+    padding: 0 30px;
+    //margin-top: -8px;
   }
   transition: all 1s;
-  background-color: rgba($color: #003, $alpha: 0.8);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(231, 231, 231),
+    rgb(135, 218, 229),
+    rgb(43, 48, 71)
+  );
   padding-top: 10px;
   text-align: center;
+  transition: all 1s;
   .menu__page--text {
     img {
       border-radius: 50%;
-      box-shadow: 0 0 2px 2px rgba($color: aqua, $alpha: 0.7);
+      border: 2px solid #000;
+      box-shadow: 0 0 2px 4px rgba($color: rgb(22, 22, 22), $alpha: 0.3);
+      margin-bottom: 5px;
     }
     i.fa-user-circle {
       font-size: 5rem;
     }
-    // .btn {
-    //   margin: 20px 0;
-    //   border-radius: 20px;
-    // }
-    // i.fa-home {
-    //   font-size: 3rem;
-    //   margin: 20px 0;
-    // }
-    // a {
-    //   color: #fc0;
-    //   text-decoration: none;
-    // }
-    // span {
-    //   display: none;
-    //   font-size: 2rem;
-    // }
-    // a,
-    // i,
-    // span {
-    //   &:hover {
-    //     color: aqua;
-    //   }
-    // }
   }
 }
 //=========class btn-to-admin===========================
@@ -90,8 +92,8 @@
 }
 //=========class btn-setting============================
 .btn.btn__setting {
-  border: 2px solid aqua;
-  box-shadow: 0 0 3px 3px rgba($color: #fff, $alpha: 0.5);
+  border: 2px solid #000;
+  box-shadow: 0 0 2px 3px rgba($color: #fff, $alpha: 0.5);
   border-radius: 20px;
   width: 65px;
   height: 30px;
@@ -115,7 +117,7 @@
   position: relative;
   background-image: url("../../../../access/images/image/sun.jpg");
   background-size: cover;
-  border: 2px solid aqua;
+  border: 2px solid #000;
   box-shadow: 0 0 3px 3px rgba($color: #fff, $alpha: 0.5);
   border-radius: 20px;
   width: 65px;
@@ -143,6 +145,7 @@
 }
 //==========checked=====================================
 #check__menu:checked ~ .menu__page--content {
+  background-color: rgba($color: #003, $alpha: 1);
   label {
     i.fa-align-right {
       opacity: 0;
@@ -154,13 +157,14 @@
     label {
       top: -70px;
       @include responsive(sm) {
-        top: -50px;
+        top: -60px;
       }
       i.fa-times-circle {
         visibility: visible;
       }
     }
     @include responsive(sm) {
+      padding-top: 20px;
       width: 100vw;
       height: 100vh;
     }
@@ -232,6 +236,28 @@
     #switch-dark-mode {
       div.switch-ovelay {
         left: 95px;
+      }
+    }
+  }
+  .menu__page--content {
+    label {
+      i {
+        color: #fc0;
+      }
+    }
+  }
+  .menu__page--body {
+    color: #fc0;
+    background-image: linear-gradient(
+      to bottom,
+      #000,
+      rgb(40, 47, 82),
+      rgb(252, 187, 68)
+    );
+    .menu__page--text {
+      img {
+        border: 2px solid aqua;
+        box-shadow: 0 0 2px 4px rgba($color: #fff, $alpha: 0.3);
       }
     }
   }

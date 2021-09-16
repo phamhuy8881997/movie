@@ -1,14 +1,13 @@
 import * as typess from "../constant/index";
-let initial = {
-  statusLogin: "",
-};
-const login = (state = initial, action) => {
-  let { type } = action;
+let initial = {};
+const loginToken = (state = initial, action) => {
+  let { type, payload } = action;
   switch (type) {
-    case typess.LOGIN:
+    case typess.GET_TOKEN_LOGIN:
+      state = { ...payload };
       return { ...state };
     default:
       return { ...state };
   }
 };
-export default login;
+export default loginToken;

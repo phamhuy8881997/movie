@@ -11,6 +11,8 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  max-width: 1360px;
+  margin: auto;
   @include responsive(sm) {
     flex-direction: column;
     height: 100vh;

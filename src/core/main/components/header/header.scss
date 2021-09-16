@@ -12,7 +12,10 @@
 @import "../../../global/variable.scss";
 .header {
   max-width: 1360px;
-  background-color: $background-primary;
+  background-color: rgba($color: #fff, $alpha: 0.6);
+  @include responsive(sm) {
+    background-color: rgba($color: #004, $alpha: 0.6);
+  }
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,19 +24,43 @@
   position: fixed;
   z-index: 999;
   .header__logo {
-    width: 50px;
-    height: 50px;
-    @include responsive(sm) {
-      width: 40px;
-      height: 40px;
-    }
-    img {
-      width: 100%;
-      height: 100%;
-      border-radius: 5px;
-      background-size: cover;
-      background-position: center;
-      animation: logo 5s linear 0s infinite;
+    padding: 10px 10px 0 10px;
+    border-radius: 20px 0 20px 0;
+    box-shadow: 0 0 10px rgb(255, 171, 171);
+    background-color: black;
+    a {
+      display: flex;
+      align-items: flex-start;
+      text-decoration: none;
+      i.i__header {
+        font-size: 3rem;
+        @include responsive(sm) {
+          font-size: 2rem;
+        }
+        background-image: linear-gradient(
+          to top,
+          rgb(51, 255, 0),
+          rgb(0, 255, 255)
+        );
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        margin-right: 7px;
+      }
+      p {
+        font-size: 2rem;
+        @include responsive(sm) {
+          font-size: 1.4rem;
+        }
+        font-weight: bold;
+        font-family: "Lobster", cursive;
+        background-image: linear-gradient(
+          to top,
+          rgb(251, 255, 0),
+          rgb(255, 0, 0)
+        );
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+      }
     }
   }
   .header__content {
@@ -44,11 +71,16 @@
       font-weight: bold;
       display: flex;
       align-items: center;
-      color: $color-header-primary;
+      color: #000;
       text-decoration: none;
       transition: all 0.5s;
-      @include responsive(sm) {
+      background-color: #fff;
+      box-shadow: 0 0 10px rgb(255, 171, 171);
+      border-radius: 20px;
+      padding: 10px 20px;
+      @include responsive(md) {
         font-size: 1.2rem;
+        padding: 5px 10px;
       }
       i.fa-user-circle {
         font-size: 3rem;
@@ -57,31 +89,30 @@
         }
       }
       &:hover {
-        color: $color-header-secondary;
+        color: #f02;
       }
     }
   }
   .header__menu {
     position: absolute;
-    background-color: $background-secondary;
-    color: $color-header-primary;
+    background-color: rgb(245, 244, 244);
     width: 30%;
     top: 40px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 0 0 20px 20px;
-    box-shadow: 0 0 3px 3px rgba($color: #fff, $alpha: 0.5),
+    box-shadow: 0 0 3px 3px rgba($color: rgb(255, 171, 171), $alpha: 0.5),
       0 0 7px 7px rgba($color: #000, $alpha: 0.4);
     transition: all 0.6s;
+
     @include responsive(md) {
-      width: 50%;
+      width: 40%;
     }
     @include responsive(sm) {
-      width: 60%;
-      top: 60px;
+      display: none;
     }
     &:hover {
-      box-shadow: 0 0 3px 3px rgba($color: aqua, $alpha: 0.5);
+      box-shadow: 0 0 3px 3px rgba($color: rgb(255, 105, 105), $alpha: 0.5);
     }
     .header__menu--content {
       display: flex;
@@ -94,6 +125,7 @@
       p {
         text-decoration: none;
         position: relative;
+        //animation: test 5s ease infinite;
         span {
           font-size: 1.3rem;
           @include responsive(xl) {
@@ -102,22 +134,22 @@
           @include responsive(md) {
             font-size: 0.8rem;
           }
-          font-weight: bold;
-          color: $color-header-primary;
+          font-weight: 900;
+          color: #000;
           transition: all 0.5s;
           &::before {
             position: absolute;
             width: 0%;
             height: 2px;
             content: "";
-            bottom: -5px;
-            background-color: $color-header-primary;
+            bottom: -9px;
+            background-color: #f02;
             left: 50%;
             transform: translateX(-50%);
             transition: all 0.5s;
           }
           &:hover {
-            color: $color-header-secondary;
+            color: #f02;
             &::before {
               width: 90%;
             }
@@ -127,14 +159,44 @@
     }
   }
 }
-@keyframes logo {
-  0% {
-    box-shadow: 0 0 4px 6px rgba($color: aqua, $alpha: 1);
-  }
-  50% {
-    box-shadow: 0 0 4px 6px rgba($color: aqua, $alpha: 0);
-  }
-  100% {
-    box-shadow: 0 0 4px 6px rgba($color: aqua, $alpha: 1);
+
+.bg___dark {
+  .header {
+    background-color: rgba($color: #000, $alpha: 0.6);
+    .header__logo {
+      box-shadow: 0 0 10px aqua;
+    }
+    .header__content {
+      .login__icon {
+        background-color: #000;
+        box-shadow: 0 0 10px aqua;
+        color: $color-header-primary;
+        &:hover {
+          color: $color-header-secondary;
+        }
+      }
+    }
+    .header__menu {
+      background-color: $background-secondary;
+      color: $color-header-primary;
+      box-shadow: 0 0 3px 3px rgba($color: #fff, $alpha: 0.5),
+        0 0 7px 7px rgba($color: #000, $alpha: 0.4);
+      &:hover {
+        box-shadow: 0 0 3px 3px rgba($color: aqua, $alpha: 0.5);
+      }
+      .header__menu--content {
+        p {
+          span {
+            color: $color-header-primary;
+            &::before {
+              background-color: $color-header-primary;
+            }
+            &:hover {
+              color: $color-header-secondary;
+            }
+          }
+        }
+      }
+    }
   }
 }

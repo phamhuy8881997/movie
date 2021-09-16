@@ -8,11 +8,6 @@ import { Redirect } from "react-router-dom";
 import GuardAdmin from "./core/admin/components/guard/guard";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-  componentDidMount = () => {};
   showMainRouter = () => {
     let resule = "";
     resule = MainRoute.map((route, i) => {

@@ -10,6 +10,7 @@ class Theater extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      user: { taiKhoan: "NoLogin" },
       maHeThongRap: "BHDStar",
       maCumRap: "bhd-star-cineplex-3-2",
       tenCumRap: "BHD Star Cineplex - 3/2",
@@ -22,8 +23,10 @@ class Theater extends Component {
     this.props.listTheater("BHDStar");
     this.props.infoTheater("BHDStar");
     this.props.timeTheater(1322);
-    let user = JSON.parse(localStorage.getItem("userLogin"));
-    this.setState({ user: user });
+    if (localStorage.getItem("userLogin")) {
+      let user = JSON.parse(localStorage.getItem("userLogin"));
+      this.setState({ user: user });
+    }
   }
   componentDidUpdate() {}
   //===========================================
@@ -125,20 +128,20 @@ class Theater extends Component {
         default:
           break;
       }
-    }, 100);
+    }, 50);
     //===================state-render-time==================
-    let header = document.getElementById("theater1");
-    let btns = header.getElementsByClassName("theater1-logo");
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener("click", function () {
-        var current = document.getElementsByClassName("active__logo");
-        current[0].className = current[0].className.replace(
-          " active__logo",
-          " "
-        );
-        this.className += " active__logo";
-      });
-    }
+    // let header = document.getElementById("theater1");
+    // let btns = header.getElementsByClassName("theater1-logo");
+    // for (var i = 0; i < btns.length; i++) {
+    //   btns[i].addEventListener("click", function () {
+    //     var current = document.getElementsByClassName("active__logo");
+    //     current[0].className = current[0].className.replace(
+    //       " active__logo",
+    //       " "
+    //     );
+    //     this.className += " active__logo";
+    //   });
+    // }
   };
   //===========================================
   //=============theader2======================
@@ -249,7 +252,7 @@ class Theater extends Component {
   };
   //===========================================
   handleBookingTo = (maLichChieu) => {
-    if (this.state.user.taiKhoan === undefined) {
+    if (this.state.user.taiKhoan === "NoLogin") {
       this.props.history.push(`/login`);
     } else {
       this.props.history.push(`/booking/${maLichChieu}`);
