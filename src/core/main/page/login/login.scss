@@ -7,11 +7,21 @@
   width: 100%;
   height: 100%;
   z-index: 18;
-  object-fit: cover;
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  // @include responsive(sm) {
+  //   display: none !important;
+  // }
 }
 .login_page1 {
   width: 100vw;
   height: 100vh;
+  @include responsive(sm) {
+    height: 750px;
+  }
 }
 .login_loadmore {
   width: 100%;
@@ -66,11 +76,12 @@
     padding: 200px 22%;
   }
   @include responsive(sm) {
-    padding: 130px 3%;
+    padding: 80px 3%;
+    height: 750px;
   }
   .login_content {
-    background-color: rgba($color: #fff, $alpha: 0.8);
-    box-shadow: 0 0 3px 3px rgba($color: rgb(81, 255, 0), $alpha: 0.8),
+    background-color: rgba($color: rgb(192, 192, 192), $alpha: 0.9);
+    box-shadow: 0 0 3px 3px rgba($color: rgb(0, 225, 255), $alpha: 0.8),
       0 0 5px 8px rgba($color: #fff, $alpha: 0.5),
       inset 0 0 5px 5px rgba($color: #000, $alpha: 0.4);
     padding: 20px 5%;
@@ -91,13 +102,17 @@
     input {
       margin: 0 20px;
       outline: none;
-      border-radius: 20px;
+      border-radius: 5px;
+      border-color: transparent;
       transition: all 0.4s;
       padding-left: 10px;
       &:focus {
         background-color: #001;
         color: #fc0;
         border: 2px solid aqua;
+        box-shadow: 0 0 2px 2px rgba($color: #000000, $alpha: 0.5),
+          0 0 4px 6px rgba($color: #000000, $alpha: 0.2);
+        animation: animation1 5s linear infinite;
       }
     }
     .input__dflex {
@@ -158,7 +173,7 @@
 }
 .bg___dark {
   .login_content {
-    background-color: rgba($color: #002, $alpha: 0.8);
+    background-color: rgba($color: #003, $alpha: 0.9);
     box-shadow: 0 0 3px 3px rgba($color: rgb(255, 145, 145), $alpha: 0.8),
       0 0 5px 8px rgba($color: #fff, $alpha: 0.5),
       inset 0 0 5px 5px rgba($color: #ffc, $alpha: 0.4);
@@ -167,11 +182,32 @@
       color: #fc0;
     }
     input {
-      border: 2px solid #000;
+      //border: 2px solid #000;
+      &:focus {
+        box-shadow: 0 0 2px 2px rgba($color: #fff, $alpha: 0.5),
+          0 0 4px 6px rgba($color: #fff, $alpha: 0.2);
+      }
     }
     .login__update1-code {
       color: #f00 !important;
       font-weight: bold;
+    }
+  }
+}
+
+@keyframes animation1 {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.login_page1 {
+  #myVideo__login {
+    @include responsive(sm) {
+      display: none !important;
     }
   }
 }

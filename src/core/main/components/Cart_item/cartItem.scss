@@ -125,6 +125,12 @@
       height: 100%;
       top: 0;
       left: 10px;
+      .i__IMDb {
+        background-color: #f03;
+        padding: 3px 6px;
+        border-radius: 7px;
+        color: #fff !important;
+      }
     }
     .body__overlay {
       position: absolute;
@@ -143,6 +149,7 @@
       opacity: 1;
       i {
         transform: scale(1.5);
+        animation: hover-icon 2s linear 0s infinite;
       }
     }
     .cart__overlay {
@@ -163,7 +170,18 @@
     }
   }
 }
-
+//====================================
+@keyframes hover-icon {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 // ===========dark mode===============
 .bg___dark {
   #cart__item {

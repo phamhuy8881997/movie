@@ -8,6 +8,9 @@
 //   }
 .booking__page {
   padding-bottom: 100px;
+  @include responsive(md) {
+    padding-bottom: 20px;
+  }
 }
 .booking__header {
   display: flex;
@@ -67,22 +70,25 @@
     line-height: 150px;
     color: #fc0;
     margin: 0 auto 40px;
-    @include responsive(sm) {
+    @include responsive(xl) {
+      width: 70%;
+    }
+    @include responsive(md) {
       width: 90%;
       height: 100px;
       line-height: 100px;
     }
   }
   .booking__body--content {
-    width: 60%;
-    margin: 0 auto;
+    width: 70%;
+    margin: auto;
+    //margin: 0 auto;
     @include responsive(lg) {
       width: 90%;
     }
     @include responsive(sm) {
-      width: 100%;
+      width: 90%;
       overflow-x: scroll;
-      padding: 0 10px;
     }
     display: grid;
     grid-template-columns: repeat(16, 1fr);

@@ -2,8 +2,8 @@
 @import "../../../global/variable.scss";
 .news__page {
   width: 70%;
-  @include responsive(xl) {
-    width: 90%;
+  @include responsive(md) {
+    width: 80%;
   }
   @include responsive(sm) {
     width: 95%;
@@ -44,7 +44,7 @@
       .news__img {
         height: 300px;
         @include responsive(xl) {
-          height: 250px;
+          height: 200px;
         }
         @include responsive(md) {
           height: 200px;
@@ -65,10 +65,10 @@
         .btnToNew {
           padding: 10px 25px;
           border-radius: 20px;
-          box-shadow: 3px 3px 3px rgba($color: #000000, $alpha: 0.7);
+          box-shadow: 0 0 3px 3px rgba($color: #000000, $alpha: 0.7);
           font-weight: bold;
           &:hover {
-            box-shadow: 0 0 3px 3px rgba($color: #000000, $alpha: 0.7);
+            box-shadow: inset 0 0 2px 2px rgba(0, 0, 0, 0.678);
           }
         }
       }
@@ -92,7 +92,7 @@
             color: #fc0;
           }
           .btnToNew {
-            box-shadow: 3px 3px 3px rgba($color: #fff, $alpha: 0.7);
+            box-shadow: 0 0 3px 3px rgba($color: #fff, $alpha: 0.5);
             &:hover {
               box-shadow: 0 0 3px 3px rgba($color: aqua, $alpha: 0.7);
             }

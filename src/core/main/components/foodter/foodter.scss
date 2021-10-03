@@ -6,7 +6,7 @@
 .foodter {
   //background-image: url(`../../../../../../access/images/image/banner1.jpg);
 
-  background-color: beige;
+  background-color: rgb(209, 209, 196);
   height: 450px;
   width: 100vw;
   background-repeat: repeat;
@@ -47,12 +47,12 @@
     left: 0;
     top: 0;
     z-index: 40;
-    padding: 50px 15% 10px;
+    padding: 15px 15% 10px;
     @include responsive(md) {
-      padding: 70px 5% 10px;
+      padding: 20px 5% 10px;
     }
     @include responsive(sm) {
-      padding: 50px 5% 10px;
+      padding: 10px 5%;
     }
   }
 }
@@ -60,137 +60,32 @@
   text-align: center;
   .foodter__header {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 30px;
+    grid-template-columns: 38% 60%;
+    grid-column-gap: 2%;
     @include responsive(sm) {
       grid-template-columns: repeat(1, 1fr);
-    }
-    .foodter__header--tag {
-      p {
-        font-size: 2rem;
-        color: #fc0;
-        font-weight: bold;
-        @include responsive(xl) {
-          font-size: 1.8rem;
-        }
-        @include responsive(md) {
-          font-size: 1.1rem;
-        }
-      }
+      grid-row-gap: 5px;
     }
     .foodter__header--1 {
-      z-index: 50;
       background-color: rgba($color: #003, $alpha: 0.8);
       border-radius: 20px;
-      padding: 0 10px;
-      .foodter__header1--text {
-        text-align: left;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 20px;
-        @include responsive(sm) {
-          text-align: center;
-        }
-        .foodter1-item1 {
-          font-size: 1.3rem;
-          font-weight: bold;
-          color: aqua;
-          @include responsive(md) {
-            font-size: 1rem;
-          }
-          @include responsive(md) {
-            font-weight: 100;
-          }
-        }
-      }
+      padding: 20px;
+      height: 200px;
+      overflow: hidden;
     }
     .foodter__header--2 {
-      z-index: 50;
+      text-align: left;
       background-color: rgba($color: #003, $alpha: 0.8);
       border-radius: 20px;
-      padding: 0 10px;
+      padding: 30px 20px;
       @include responsive(sm) {
-        display: none;
+        padding: 15px;
       }
-      .foodter__header2--text {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 5px;
-        .foodter1-item2 {
-          display: flex;
-          align-items: center;
-          img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center;
-            border: 2px solid #fc0;
-            margin-right: 10px;
-            @include responsive(md) {
-              width: 20px;
-              height: 20px;
-            }
-          }
-          span {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: aqua;
-            @include responsive(md) {
-              font-size: 1.2rem;
-            }
-          }
-        }
-      }
-    }
-    .foodter__header--3 {
-      z-index: 50;
-      background-color: rgba($color: #003, $alpha: 0.8);
-      border-radius: 20px;
-      padding: 0 10px;
-      @include responsive(sm) {
-        display: none;
-      }
-      .foodter__header3--text {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 5px;
-        .foodter1-item3 {
-          display: flex;
-          align-items: center;
-          transition: 0.5s;
-          i {
-            font-size: 3.5rem;
-            margin-right: 10px;
-            animation: icons 3s linear 0s infinite;
-            @include responsive(md) {
-              font-size: 2rem;
-            }
-          }
-          .fa-youtube {
-            color: #f02;
-          }
-          .fa-skype {
-            color: rgb(126, 186, 194);
-          }
-          .fa-facebook {
-            color: rgb(59, 110, 187);
-          }
-          .fa-instagram {
-            color: rgb(230, 179, 39);
-          }
-          span {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: aqua;
-            @include responsive(md) {
-              font-size: 1.2rem;
-            }
-          }
-        }
-      }
+      color: #fc0;
+      font-size: 1.6rem;
     }
   }
+
   .foodter__body {
     width: 100%;
     text-align: left;
@@ -199,12 +94,15 @@
     margin-bottom: 10px;
     border-radius: 20px;
     text-align: center;
+    @include responsive(sm) {
+      display: none;
+    }
     .foodter__body--img {
       img {
         width: 30px;
         height: 30px;
         border-radius: 50%;
-        border: 2px solid aqua;
+        border: 2px solid rgb(255, 196, 0);
         @include responsive(sm) {
           display: none;
         }
@@ -214,7 +112,6 @@
     span {
       color: #fc0;
       font-size: 1.3rem;
-      font-weight: bold;
     }
   }
   .foodter__foodter {
@@ -229,12 +126,15 @@
 @keyframes icons {
   0% {
     transform: scale(0.5);
+    filter: brightness(50%);
   }
   50% {
     transform: scale(1);
+    filter: brightness(100%);
   }
   100% {
     transform: scale(0.5);
+    filter: brightness(50%);
   }
 }
 .bg___dark {

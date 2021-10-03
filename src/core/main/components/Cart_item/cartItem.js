@@ -6,12 +6,8 @@ class CartItem extends Component {
   render() {
     let { item } = this.props;
     return (
-      <Link
-        className="card"
-        id="cart__item"
-        to={`/movie-detail/${item.maPhim}`}
-      >
-        <div className="cart__img">
+      <section className="card" id="cart__item">
+        <Link className="cart__img" to={`/movie-detail/${item.maPhim}`}>
           <img src={item.hinhAnh} className="card-img-top" alt="..." />
           <div className="cart__icon">
             <i className="fa fa-play-circle"></i>
@@ -19,16 +15,23 @@ class CartItem extends Component {
           <div className="cart__overlay"></div>
           <div className="trigger__left"></div>
           <div className="trigger__right"></div>
-        </div>
+        </Link>
         <div className="cart__body">
           <div className="body__overlay"></div>
           <div className="body__text">
-            <p>{item.tenPhim}</p>
+            <div>
+              {item.tenPhim.length < 25 ? (
+                <p>{item.tenPhim}</p>
+              ) : (
+                <p>{item.tenPhim.slice(0, 24)} ...</p>
+              )}
+            </div>
             <p>
-              <span>thời Lượng: 100 Phút</span>
+              <span>thời Lượng: 90 Phút</span>
             </p>
             <p>
-              <span className="mr-2">IMDb:10 / </span>
+              <span className="i__IMDb mr-2">IMDb </span>
+              <span> : 8.8 / </span>
               <i className="fa fa-star"></i>
               <i className="fa fa-star"></i>
               <i className="fa fa-star"></i>
@@ -37,7 +40,7 @@ class CartItem extends Component {
             </p>
           </div>
         </div>
-      </Link>
+      </section>
     );
   }
 }

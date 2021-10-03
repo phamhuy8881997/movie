@@ -28,6 +28,12 @@
 }
 /* // =========================== */
 //======set-up-css-toastify=========
+.Toastify {
+  // z-index: 999999999999999999999999999999999999999999999 !important;
+  // position: fixed;
+  // top: 0;
+  // right: 0;
+}
 .Toastify__toast-container {
   width: 40% !important;
   @include responsive(md) {

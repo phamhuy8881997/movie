@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./application.scss";
 
+const QA_code = require("../../../../access/images/image/QA_code.png").default;
+
 class Application extends Component {
   showItemCarou = () => {
     let arrC1 = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -30,17 +32,19 @@ class Application extends Component {
               </div>
             </div>
             <div className="app__mobile-icon">
-              <div className="app__mobile-icon1">
-                <i className="fab fa-android"></i>
-                <span>Hệ Điều Hành Android</span>
+              <div className="app__mobile-icon-logo">
+                <div className="app__mobile-icon1">
+                  <i className="fab fa-android"></i>
+                </div>
+                <div className="app__mobile-icon1">
+                  <i className="fab fa-app-store-ios"></i>
+                </div>
+                <div className="app__mobile-icon1">
+                  <i className="fab fa-windows"></i>
+                </div>
               </div>
-              <div className="app__mobile-icon1">
-                <i className="fab fa-app-store-ios"></i>
-                <span>Hệ Điều Hành IOS</span>
-              </div>
-              <div className="app__mobile-icon1">
-                <i className="fab fa-windows"></i>
-                <span>Hệ Điều Hành Window</span>
+              <div className="app__mobile-QA_code">
+                <img src={QA_code} alt="..." />
               </div>
               <div className="app__mobile-icon1">
                 <button

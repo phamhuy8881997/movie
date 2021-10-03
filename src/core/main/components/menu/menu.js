@@ -53,12 +53,14 @@ class Menu extends Component {
                   <i className="fa fa-user-check"></i>
                   <span>Đăng Nhập</span>
                 </Link>
-                <div>
-                  <a href="/" className="btn btn-danger btn__setting">
-                    <i className="fa fa-home"></i>
-                    <span>Trang Chủ</span>
-                  </a>
-                </div>
+                <Link
+                  type="button"
+                  className="btn btn-danger btn__setting"
+                  to="/"
+                >
+                  <i className="fa fa-home"></i>
+                  <span>Trang Chủ</span>
+                </Link>
                 {/* <div className="admin__to--page">
                   <Link
                     type="button"
@@ -103,12 +105,14 @@ class Menu extends Component {
                   <i className="fa fa-user-times"></i>
                   <span>Đăng Xuất</span>
                 </button>
-                <div>
-                  <a href="/" className="btn btn-info btn__setting">
-                    <i className="fa fa-home"></i>
-                    <span>Trang Chủ</span>
-                  </a>
-                </div>
+                <Link
+                  type="button"
+                  className="btn btn-info btn__setting"
+                  to="/"
+                >
+                  <i className="fa fa-home"></i>
+                  <span>Trang Chủ</span>
+                </Link>
                 <div className="admin__to--page">
                   <Link
                     type="button"

@@ -8,6 +8,7 @@
   );
   min-height: 100vh;
   position: relative;
+  overflow: hidden;
   .add__time1 {
     position: absolute;
     top: 50%;
@@ -50,6 +51,9 @@
         border-radius: 20px;
         padding-left: 10px;
         outline: none;
+        @include responsive(sm) {
+          width: 60%;
+        }
       }
     }
     .add__time-input2 {

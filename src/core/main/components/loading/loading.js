@@ -11,7 +11,7 @@ class Loading extends Component {
           />
         </div>
         <div className="loading__text text-center">
-          <h3>... Đang Tải Dữ Liệu ...</h3>
+          {/* <h3>... Đang Tải Dữ Liệu ...</h3> */}
         </div>
         <div className="loading-1">
           <div className="loading">

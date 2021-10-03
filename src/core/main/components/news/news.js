@@ -22,7 +22,7 @@ class News extends Component {
             <div className="news__text">
               <p>Tuần trước, trailer của Spider-man...</p>
               <p>Tobey Maguire tên thật là...</p>
-              <Link className="btn btn-danger btn-lg btnToNew" to="/news/1">
+              <Link className="btn btn-warning btn-lg btnToNew" to="/news/1">
                 Chi Tiết...
               </Link>
             </div>
@@ -34,7 +34,7 @@ class News extends Component {
             <div className="news__text">
               <p>Là phần phim độc lập với Suicide...</p>
               <p>Mặc dù kiếm được đến 750 triệu...</p>
-              <Link className="btn btn-danger btn-lg btnToNew" to="/news/2">
+              <Link className="btn btn-warning btn-lg btnToNew" to="/news/2">
                 Chi Tiết...
               </Link>
             </div>

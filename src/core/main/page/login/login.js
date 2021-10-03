@@ -242,12 +242,16 @@ class Login extends Component {
     return (
       <Fragment>
         <div className="login_page1">
-          <video autoPlay muted loop id="myVideo__login">
-            <source
-              src={require(`../../../../access/images/video/login.mp4`).default}
-              type="video/mp4"
-            />
-          </video>
+          <div id="myVideo__login">
+            <video autoPlay muted loop>
+              <source
+                src={
+                  require(`../../../../access/images/video/login.mp4`).default
+                }
+                type="video/mp4"
+              />
+            </video>
+          </div>
           <div className="login_page text-center">
             <div className="login_loadmore" id="login__header">
               <p
@@ -341,11 +345,11 @@ class Login extends Component {
                       }}
                     />
                     {taikhoanErr === "" ? (
-                      <span style={{ color: "#0f0", fontWeight: "bold" }}>
+                      <span style={{ color: "#0f0" }}>
                         <i class="fa fa-check mr-2"></i> tài khoản hợp lệ
                       </span>
                     ) : (
-                      <span style={{ color: "#f00", fontWeight: "bold" }}>
+                      <span style={{ color: "#f00" }}>
                         <i class="fa fa-exclamation mr-2"></i> {taikhoanErr}
                       </span>
                     )}
@@ -366,11 +370,11 @@ class Login extends Component {
                       }}
                     />
                     {matkhauErr === "" ? (
-                      <span style={{ color: "#0f0", fontWeight: "bold" }}>
+                      <span style={{ color: "#0f0" }}>
                         <i class="fa fa-check mr-2"></i> mật khẩu hợp lệ
                       </span>
                     ) : (
-                      <span style={{ color: "#f00", fontWeight: "bold" }}>
+                      <span style={{ color: "#f00" }}>
                         <i class="fa fa-exclamation mr-2"></i> {matkhauErr}
                       </span>
                     )}
@@ -391,11 +395,11 @@ class Login extends Component {
                       }}
                     />
                     {soDienThoaiErr === "" ? (
-                      <span style={{ color: "#0f0", fontWeight: "bold" }}>
+                      <span style={{ color: "#0f0" }}>
                         <i class="fa fa-check mr-2"></i> số điện thoại hợp lệ
                       </span>
                     ) : (
-                      <span style={{ color: "#f00", fontWeight: "bold" }}>
+                      <span style={{ color: "#f00" }}>
                         <i class="fa fa-exclamation mr-2"></i> {soDienThoaiErr}
                       </span>
                     )}
@@ -416,11 +420,11 @@ class Login extends Component {
                       }}
                     />
                     {emailErr === "" ? (
-                      <span style={{ color: "#0f0", fontWeight: "bold" }}>
+                      <span style={{ color: "#0f0" }}>
                         <i class="fa fa-check mr-2"></i> Email thoại hợp lệ
                       </span>
                     ) : (
-                      <span style={{ color: "#f00", fontWeight: "bold" }}>
+                      <span style={{ color: "#f00" }}>
                         <i class="fa fa-exclamation mr-2"></i> {emailErr}
                       </span>
                     )}
@@ -441,11 +445,11 @@ class Login extends Component {
                       }}
                     />
                     {hoTenErr === "" ? (
-                      <span style={{ color: "#0f0", fontWeight: "bold" }}>
+                      <span style={{ color: "#0f0" }}>
                         <i class="fa fa-check mr-2"></i> họ tên hợp lệ
                       </span>
                     ) : (
-                      <span style={{ color: "#f00", fontWeight: "bold" }}>
+                      <span style={{ color: "#f00" }}>
                         <i class="fa fa-exclamation mr-2"></i> {hoTenErr}
                       </span>
                     )}

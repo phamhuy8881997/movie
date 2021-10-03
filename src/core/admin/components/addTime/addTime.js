@@ -135,7 +135,7 @@ class AddTime extends Component {
                 }}
               >
                 {" "}
-                Thêm Phim
+                Thêm Lịch Chiếu
               </button>
             </div>
           </div>

@@ -50,7 +50,7 @@ class Foodter extends Component {
                 />
                 <span>
                   {" "}
-                  Sản Phẩm Của Công Ty Cổ Phần Movie Ocean Digital Media{" "}
+                  Sản Phẩm Của Công Ty Cổ Phần Blue Star Digital Media{" "}
                 </span>
               </div>
               <div className="foodter__body--text">
@@ -58,95 +58,72 @@ class Foodter extends Component {
                   Địa Chỉ: 112 Cao Thắng, Phường 4, Quận 3, Thành Phố Hồ Chí
                   Minh
                 </p>
-                <p>Người Chịu Trách Nhiệm: Nguyễn Văn A</p>
+                <p>Người Chịu Trách Nhiệm: Ông Nguyễn Văn A</p>
                 <p>Email: OceanDigital@gmail.com / Hotline: 1900 123 123</p>
               </div>
             </div>
             <div className="foodter__header">
               <div className="foodter__header--1">
-                <div className="foodter__header--tag">
-                  <p>Ocean Movie</p>
-                </div>
-                <div className="foodter__header1--text">
-                  <p className="foodter1-item1">Bảo Mật Dữ liệu</p>
-                  <p className="foodter1-item1">Điều Khoản Sử Dụng</p>
-                  <p className="foodter1-item1"> Khuyến Mãi</p>
-                  <p className="foodter1-item1">Bản Quyền Dữ Liệu</p>
-                </div>
+                <iframe
+                  title="google map"
+                  width="100%"
+                  height="100%"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3233.0493323401734!2d106.67804169672597!3d10.772201279959997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752fca39e3b493%3A0x865af6a617c57d82!2sCyberSoft%20Academy!5e0!3m2!1svi!2s!4v1632635192210!5m2!1svi!2s"
+                  allowFullScreen=""
+                  loading="lazy"
+                  id="iframe__googleMap"
+                ></iframe>
               </div>
               <div className="foodter__header--2">
-                <div className="foodter__header--tag">
-                  <p>Đối tác</p>
-                </div>
-                <div className="foodter__header2--text">
-                  <p className="foodter1-item2">
-                    <img
-                      src={
-                        require(`../../../../access/images/image/logoM1.jpg`)
-                          .default
-                      }
-                      alt="..."
+                <p>
+                  <i className="fa fa-address-card"></i> Người Phụ Trách Nguyễn
+                  Văn B
+                </p>
+                <p>
+                  <i className="fa fa-phone-square"></i> 0909123123 / 0797222555
+                </p>
+                <p>
+                  <span>
+                    Hợp Tác Với Chúng Tôi:
+                    <i
+                      className="fab fa-youtube mx-4"
+                      style={{ color: "#f00" }}
+                    ></i>
+                    <i
+                      className="fab fa-facebook-square mr-4"
+                      style={{ color: "rgb(0, 174, 255)" }}
+                    ></i>
+                    <i
+                      className="fab fa-skype mr-4"
+                      style={{ color: "rgb(0, 238, 255)" }}
+                    ></i>
+                    <i
+                      className="fab fa-instagram"
+                      style={{ color: "rgb(255, 196, 0)" }}
+                    ></i>
+                  </span>
+                </p>
+                <div>
+                  <div className="input-group">
+                    <span className="mr-4">Phản Hồi: </span>
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="liên hệ với chúng tôi.."
+                      aria-label="Recipient's username"
+                      aria-describedby="basic-addon2"
                     />
-                    <span>BHD</span>
-                  </p>
-                  <p className="foodter1-item2">
-                    <img
-                      src={
-                        require(`../../../../access/images/image/logoM2.jpg`)
-                          .default
-                      }
-                      alt="..."
-                    />
-                    <span>Galaxy</span>
-                  </p>
-                  <p className="foodter1-item2">
-                    <img
-                      src={
-                        require(`../../../../access/images/image/logoM3.jpg`)
-                          .default
-                      }
-                      alt="..."
-                    />
-                    <span>CGV</span>
-                  </p>
-                  <p className="foodter1-item2">
-                    <img
-                      src={
-                        require(`../../../../access/images/image/logoM4.jpg`)
-                          .default
-                      }
-                      alt="..."
-                    />
-                    <span>Star</span>
-                  </p>
-                </div>
-              </div>
-              <div className="foodter__header--3">
-                <div className="foodter__header--tag">
-                  <p>Nền Tảng</p>
-                </div>
-                <div className="foodter__header3--text">
-                  <p className="foodter1-item3">
-                    <i className="fab fa-youtube"></i>
-                    <span>YouTube</span>
-                  </p>
-                  <p className="foodter1-item3">
-                    <i className="fab fa-skype"></i>
-                    <span>Skyper</span>
-                  </p>
-                  <p className="foodter1-item3">
-                    <i className="fab fa-facebook"></i>
-                    <span>FaceBook</span>
-                  </p>
-                  <p className="foodter1-item3">
-                    <i className="fab fa-instagram"></i>
-                    <span>Instagram</span>
-                  </p>
+                    <div className="input-group-append">
+                      <span className="input-group-text" id="basic-addon2">
+                        <i className="fa fa-paper-plane"></i>
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="foodter__foodter">
-              <p>@ CoppyRight By Media Digital Ocean 2021 </p>
+              <p>@ CoppyRight By Blue Star Digital 2021 </p>
             </div>
           </div>
         </section>

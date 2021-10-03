@@ -22,7 +22,7 @@ class CartItem extends Component {
           <img src={item.hinhAnh} alt="..." />
         </div>
         <div className="cart__admin--text">
-          <p>{item.tenPhim.slice(0, 15)}...</p>
+          <p>tên Phim: {item.tenPhim}</p>
           <p>Mã Phim: {item.maPhim}</p>
           <Link className="btn btn-info" to={`/movie-detail/${item.maPhim}`}>
             Thông Tin

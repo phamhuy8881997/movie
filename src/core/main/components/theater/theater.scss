@@ -9,6 +9,9 @@
   padding: 12px 0;
   border-radius: 10px;
   background-color: black;
+  @include responsive(md) {
+    width: 80%;
+  }
   @include responsive(sm) {
     width: 95%;
   }
@@ -40,13 +43,22 @@
   .theater__content {
     width: 70%;
     @include responsive(xl) {
-      width: 95%;
+      width: 70%;
+    }
+    @include responsive(md) {
+      width: 80%;
+    }
+    @include responsive(sm) {
+      width: 90%;
     }
     margin: auto;
     display: grid;
     grid-template-columns: 10% 30% 60%;
     @include responsive(xl) {
-      grid-template-columns: 10% 35% 55%;
+      grid-template-columns: 12% 45% 43%;
+    }
+    @include responsive(md) {
+      grid-template-columns: 12% 40% 48%;
     }
     @include responsive(sm) {
       display: flex;
@@ -85,6 +97,9 @@
           width: 75%;
           border-top: 0.5px solid #000;
           margin: auto;
+        }
+        &:hover {
+          background-color: rgba($color: #f00, $alpha: 0.2);
         }
       }
       .active__logo {
@@ -197,8 +212,11 @@
           display: grid;
           grid-template-columns: repeat(7, 1fr);
           grid-gap: 10px;
+          @include responsive(xl) {
+            grid-template-columns: repeat(4, 1fr);
+          }
           @include responsive(md) {
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(4, 1fr);
           }
           p {
             background-color: #fc0;

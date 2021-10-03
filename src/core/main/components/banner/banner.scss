@@ -40,6 +40,7 @@
       transition: all 0.5s;
     }
     &:hover {
+      color: #f03;
       &::before {
         width: 100%;
       }

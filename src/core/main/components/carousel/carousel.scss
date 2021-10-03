@@ -11,8 +11,8 @@
         border: 2px solid transparent;
         transition: all 0.7s;
         @include responsive(sm) {
-          width: 1.2rem;
-          height: 1.2rem;
+          width: 1rem;
+          height: 1rem;
           margin: 0 5px;
         }
       }
@@ -21,14 +21,22 @@
         border: 2px solid #000;
         border-radius: 10px;
         width: 2.8rem;
+        @include responsive(sm) {
+          width: 1.3rem;
+        }
       }
     }
     .carousel-inner {
       border-radius: 0 0 50px 50px;
+      //=======
+      // -webkit-background-clip: padding-box;
+      // -moz-background-clip: padding;
+      // background-clip: padding-box;
+      //=======
       overflow: hidden;
       position: relative;
       .carousel-item {
-        height: 650px;
+        height: 623px;
         @include responsive(xl) {
           height: 600px;
         }
@@ -44,14 +52,20 @@
           height: 100%;
           object-fit: cover;
           background-position-y: center;
+          border-radius: 0 0 50px 50px;
         }
         .btn__carousel {
           font-weight: bolder;
           border-radius: 20px;
           padding: 8px 15px;
           opacity: 0;
-          box-shadow: 0 0 4px 5px rgba($color: #f00, $alpha: 0.7);
+          box-shadow: 0 0 3px 3px rgba($color: #f00, $alpha: 0.7);
           transition: all 0.6s;
+          //======
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          //======
           @include responsive(xl) {
             opacity: 1;
           }
@@ -94,7 +108,7 @@
             }
             border-radius: 50%;
             i {
-              color: rgba($color: #fff, $alpha: 0.7);
+              color: rgba($color: #003, $alpha: 0.7);
               font-size: 5rem;
               transition: all 0.5s;
 
@@ -103,9 +117,9 @@
               }
             }
             &:hover {
-              background-color: aqua;
+              background-color: #003;
               i {
-                color: #000;
+                color: #fff;
               }
             }
           }

@@ -12,14 +12,27 @@ class DataUser extends Component {
     let resule = "";
     resule = adminAllUser?.map((user, i) => {
       return (
-        <div className="admin__users--item" key={`fsngng4${i}`}>
-          <p>Họ tên: {user.hoTen} </p>
-          <p className="admin__users--color1">Tài Khoản: {user.taiKhoan} </p>
-          <p className="admin__users--color1">Mật Khẩu: {user.matKhau} </p>
-          <p>Email: {user.email}</p>
-          <p>Số Điện Thoại: {user.soDt}</p>
-          <p>Phân Loại: {user.maLoaiNguoiDung}</p>
-        </div>
+        <tr className="admin__users--item" key={`fsngng4${i}`}>
+          <td>{i + 1}</td>
+          <td>
+            <p>{user.hoTen} </p>
+          </td>
+          <td>
+            <p className="admin__users--color1">{user.taiKhoan} </p>
+          </td>
+          <td>
+            <p className="admin__users--color1">{user.matKhau} </p>
+          </td>
+          <td>
+            <p>{user.email}</p>
+          </td>
+          <td>
+            <p>{user.soDt}</p>
+          </td>
+          <td>
+            <p>{user.maLoaiNguoiDung}</p>
+          </td>
+        </tr>
       );
     });
     return resule;
@@ -32,7 +45,22 @@ class DataUser extends Component {
           <div className="admin__users--tittle">
             <h1>Danh Sách Tài Khoản</h1>
           </div>
-          <div className="admin__users--body">{this.renderUsers()}</div>
+          <div className="admin__users--body">
+            <table className="table table-bordered">
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Họ Tên</th>
+                  <th>Tài Khoản</th>
+                  <th>Mật Khẩu</th>
+                  <th>Email</th>
+                  <th>Số Điện Thoại</th>
+                  <th>phân loại</th>
+                </tr>
+              </thead>
+              <tbody>{this.renderUsers()}</tbody>
+            </table>
+          </div>
           <div className="admin__users--foodter"></div>
         </section>
       </Fragment>

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 //import Modal from "../../components/modal/modal";
 import "./header.scss";
 import { withRouter } from "react-router";
+import { toast } from "react-toastify";
 
 class Header extends Component {
   constructor(props) {
@@ -21,14 +22,19 @@ class Header extends Component {
     localStorage.setItem("userLogin", JSON.stringify({ taiKhoan: "NoLogin" }));
     setTimeout(() => {
       window.location.reload();
-    }, 500);
+    }, 2100);
+    toast.error(`⚠️ đăng suất sau 2s ! `, {
+      position: "top-center",
+      autoClose: 2000,
+      pauseOnHover: false,
+    });
   };
   handleScroll = (value) => {
     this.props.history.push("/");
     setTimeout(() => {
       let pos = document.getElementById(value).offsetTop;
       window.scrollTo(0, pos - 100);
-    }, 1000);
+    }, 750);
   };
   render() {
     //console.log("user", this.state.user);
@@ -37,8 +43,8 @@ class Header extends Component {
         <div className="header">
           <div className="header__logo">
             <a href="/">
-              <i className="fa fa-star fa-spin i__header"></i>
-              <p>Star Blue </p>
+              <i className="fa fa-star i__header"></i>
+              {/* <p>Star Movie</p> */}
             </a>
             <div className="name__movie"></div>
           </div>
@@ -64,34 +70,50 @@ class Header extends Component {
 
           <div className="header__menu" id="header__menu">
             <div className="header__menu--content">
-              <p
-                onClick={() => {
-                  this.handleScroll("lichchieu");
-                }}
-              >
-                <span>Lịch Chiếu</span>
-              </p>
-              <p
-                onClick={() => {
-                  this.handleScroll("cumrap");
-                }}
-              >
-                <span>Cụm Rạp</span>
-              </p>
-              <p
-                onClick={() => {
-                  this.handleScroll("tintuc");
-                }}
-              >
-                <span>Tin Tức</span>
-              </p>
-              <p
-                onClick={() => {
-                  this.handleScroll("ungdung");
-                }}
-              >
-                <span>Ứng Dụng</span>
-              </p>
+              <div className="header__menu--1">
+                <div id="trapezium1"></div>
+                <p
+                  onClick={() => {
+                    this.handleScroll("lichchieu");
+                  }}
+                >
+                  <span>Lịch Chiếu</span>
+                </p>
+                <div id="trapezium2"></div>
+              </div>
+              <div className="header__menu--1">
+                <div id="trapezium1"></div>
+                <p
+                  onClick={() => {
+                    this.handleScroll("cumrap");
+                  }}
+                >
+                  <span>Cụm Rạp</span>
+                </p>
+                <div id="trapezium2"></div>
+              </div>
+              <div className="header__menu--1">
+                <div id="trapezium1"></div>
+                <p
+                  onClick={() => {
+                    this.handleScroll("tintuc");
+                  }}
+                >
+                  <span>Tin Tức</span>
+                </p>
+                <div id="trapezium2"></div>
+              </div>
+              <div className="header__menu--1">
+                <div id="trapezium1"></div>
+                <p
+                  onClick={() => {
+                    this.handleScroll("ungdung");
+                  }}
+                >
+                  <span>Ứng Dụng</span>
+                </p>
+                <div id="trapezium2"></div>
+              </div>
             </div>
           </div>
         </div>

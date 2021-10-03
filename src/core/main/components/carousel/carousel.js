@@ -91,7 +91,7 @@ class Carousel extends Component {
         <section className="carousel">
           <div
             id="my_carousel"
-            className="carousel slide carousel-fade"
+            className="carousel slide"
             data-ride="carousel"
             data-interval="2500"
           >
@@ -113,7 +113,7 @@ class Carousel extends Component {
                   className="d-block w-100"
                   alt="..."
                 />
-                <div className="carousel-caption d-none d-md-block">
+                <div className="carousel-caption">
                   <Link
                     type="button"
                     className="btn btn-warning btn__carousel btn-lg"

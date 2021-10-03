@@ -52,7 +52,6 @@
     &:hover {
       background-color: rgba($color: #fff, $alpha: 1);
       border-radius: 40px 0 0 40px;
-      transition: all 0.3s;
       color: #f02;
       .adminHeader__item-text {
         color: #f02;
@@ -70,6 +69,9 @@
     }
     .adminHeader__user {
       margin-bottom: 40px;
+      @include responsive(sm) {
+        margin-bottom: 20px;
+      }
       img {
         width: 50px;
         height: 50px;
@@ -80,6 +82,9 @@
     }
     .adminHeader__item {
       padding: 25px 10px;
+      @include responsive(sm) {
+        padding: 15px;
+      }
       i {
         font-size: 3rem;
       }
@@ -110,6 +115,10 @@
         width: 100px;
         height: 100px;
       }
+      @include responsive(sm) {
+        width: 80px;
+        height: 80px;
+      }
     }
     p {
       font-size: 1.2rem;
@@ -120,10 +129,17 @@
     @include responsive(md) {
       text-align: left;
     }
+    @include responsive(sm) {
+      padding: 15px 10px;
+    }
     i {
       font-size: 3rem;
       @include responsive(md) {
         font-size: 1.6rem;
+        margin-right: 10px;
+      }
+      @include responsive(sm) {
+        font-size: 1.3rem;
         margin-right: 10px;
       }
     }

@@ -115,8 +115,11 @@ class Booking extends Component {
                 <div className="booking--item5"></div>
               </div>
               <div className="text-center">
-                <span className="text__mobile" style={{ opacity: "0" }}>
-                  -- vui lòng trượt sang 2 bên để chọn ghế --{" "}
+                <span
+                  className="text__mobile"
+                  style={{ opacity: "0", color: "#f00" }}
+                >
+                  ----- vui lòng trượt sang 2 bên để chọn ghế ----{" "}
                 </span>
               </div>
             </div>
